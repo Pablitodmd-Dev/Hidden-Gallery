@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://be7qdtwr7l5un"]
+
+[ext_resource type="Script" uid="uid://g4xnhmqbmgws" path="res://scripts/Rooms/landscape_room.gd" id="1_igycr"]
+[ext_resource type="Texture2D" uid="uid://cxxrplwu5sjid" path="res://assets/Rooms/LandscapeRoomBroken.png" id="1_ugd33"]
+[ext_resource type="Texture2D" uid="uid://c40ejjhoewfo0" path="res://assets/Rooms/LandscapeRoomCleaned.png" id="2_5xvms"]
+[ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_dim0j"]
+
+[node name="LandscapeRoom" type="Control" unique_id=2121968023]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_igycr")
+
+[node name="BrokenImage" type="TextureRect" parent="." unique_id=1239654525]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_ugd33")
+expand_mode = 1
+
+[node name="CleanedImage" type="TextureRect" parent="." unique_id=1383178039]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_5xvms")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=579814237]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 526.0
+offset_right = 124.0
+offset_bottom = 630.0
+texture_normal = ExtResource("3_dim0j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

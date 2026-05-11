@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbe5pkfai7hhc"
-path="res://.godot/imported/Gemini_Generated_Image_ahr2q8ahr2q8ahr2(2)(1).png-ce99b4bb8640307ebea212cb74aca9c6.ctex"
+uid="uid://bpp2mqryhoh3j"
+path="res://.godot/imported/BackButton.png-67ebf50b0d04e7c29de68fbc488ddd3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PaintingChart/Gemini_Generated_Image_ahr2q8ahr2q8ahr2(2)(1).png"
-dest_files=["res://.godot/imported/Gemini_Generated_Image_ahr2q8ahr2q8ahr2(2)(1).png-ce99b4bb8640307ebea212cb74aca9c6.ctex"]
+source_file="res://assets/Rooms/Buttons/BackButton.png"
+dest_files=["res://.godot/imported/BackButton.png-67ebf50b0d04e7c29de68fbc488ddd3d.ctex"]
 
 [params]
 

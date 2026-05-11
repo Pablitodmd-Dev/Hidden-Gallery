@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://chrsovj36ciri"]
+
+[ext_resource type="Script" uid="uid://qhxcp0lddmoo" path="res://scripts/Rooms/flower_room.gd" id="1_h3trh"]
+[ext_resource type="Texture2D" uid="uid://cl87vrmbb3ea8" path="res://assets/Rooms/FloraRoomBroken.png" id="1_nklc5"]
+[ext_resource type="Texture2D" uid="uid://cww7sc1fca2p5" path="res://assets/Rooms/FloraRoomCleaned.png" id="2_ruufd"]
+[ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_h0ggu"]
+
+[node name="FlowerRoom" type="Control" unique_id=1600951273]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h3trh")
+
+[node name="BrokenImage" type="TextureRect" parent="." unique_id=460345385]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_nklc5")
+expand_mode = 1
+
+[node name="CleanedImage" type="TextureRect" parent="." unique_id=1771537512]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_ruufd")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=44124946]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 526.0
+offset_right = 124.0
+offset_bottom = 630.0
+texture_normal = ExtResource("3_h0ggu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

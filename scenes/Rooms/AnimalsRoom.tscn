@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bmf6mrsh7cjga"]
+
+[ext_resource type="Script" uid="uid://b6gwmjbgs8c3a" path="res://scripts/Rooms/animals_room.gd" id="1_hgwkw"]
+[ext_resource type="Texture2D" uid="uid://b7mk4jnkc7uju" path="res://assets/Rooms/AnimalsRoomBroken.png" id="1_tm1s4"]
+[ext_resource type="Texture2D" uid="uid://cagbc8upyqwxn" path="res://assets/Rooms/AnimalsRoomCleaned.png" id="2_bms26"]
+[ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_2xhq2"]
+
+[node name="AnimalsRoom" type="Control" unique_id=1275927632]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hgwkw")
+
+[node name="BrokenImage" type="TextureRect" parent="." unique_id=1224632603]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_tm1s4")
+expand_mode = 1
+
+[node name="CleanedImage" type="TextureRect" parent="." unique_id=498759319]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_bms26")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1034020481]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 526.0
+offset_right = 124.0
+offset_bottom = 630.0
+texture_normal = ExtResource("3_2xhq2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

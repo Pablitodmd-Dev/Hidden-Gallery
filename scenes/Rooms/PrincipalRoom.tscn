@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://ffcmdbusqjlt"]
+
+[ext_resource type="Script" uid="uid://ddis783ymtrav" path="res://scripts/Rooms/principal_room.gd" id="1_su7wi"]
+[ext_resource type="Texture2D" uid="uid://cfdop7sqjdfyi" path="res://assets/Rooms/PrincipalRoom.png" id="1_t70nw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t70nw"]
+size = Vector2(66.5, 186)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_su7wi"]
+size = Vector2(125, 87.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x71x"]
+size = Vector2(116, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8vmh"]
+size = Vector2(109, 88)
+
+[node name="PrincipalRoom" type="Node2D" unique_id=1433225470]
+script = ExtResource("1_su7wi")
+
+[node name="TextureRect" type="Sprite2D" parent="." unique_id=1108100961]
+position = Vector2(576, 324)
+scale = Vector2(1.125, 1.476082)
+texture = ExtResource("1_t70nw")
+
+[node name="AnimalsDoor" type="Area2D" parent="." unique_id=788791663]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalsDoor" unique_id=1500574883]
+position = Vector2(349.75, 461)
+shape = SubResource("RectangleShape2D_t70nw")
+debug_color = Color(0.76150274, 0.45183545, 1.92523e-07, 0.41960785)
+
+[node name="LandScapesDoor" type="Area2D" parent="." unique_id=1041417805]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LandScapesDoor" unique_id=2001435501]
+position = Vector2(577, 461)
+shape = SubResource("RectangleShape2D_t70nw")
+debug_color = Color(0, 0.6503022, 0.05908925, 0.41960785)
+
+[node name="FloraDoor" type="Area2D" parent="." unique_id=1227526146]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloraDoor" unique_id=1014498779]
+position = Vector2(792, 461)
+shape = SubResource("RectangleShape2D_t70nw")
+debug_color = Color(0.9229097, 5.1692426e-05, 0.68636936, 0.41960785)
+
+[node name="AnimalsChart" type="Area2D" parent="." unique_id=1431126884]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalsChart" unique_id=1586439969]
+position = Vector2(347.5, 301.5)
+shape = SubResource("RectangleShape2D_su7wi")
+debug_color = Color(0.056164287, 0.52550465, 0.99999994, 0.41960785)
+
+[node name="FloraChart" type="Area2D" parent="." unique_id=2046301476]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloraChart" unique_id=1476503209]
+position = Vector2(794, 301)
+shape = SubResource("RectangleShape2D_4x71x")
+
+[node name="LandScapeChart" type="Area2D" parent="." unique_id=1510022555]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LandScapeChart" unique_id=420588677]
+position = Vector2(576.5, 301)
+shape = SubResource("RectangleShape2D_p8vmh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1849087329]
+
+[connection signal="input_event" from="AnimalsDoor" to="." method="_on_animals_door_input_event"]
+[connection signal="input_event" from="LandScapesDoor" to="." method="_on_land_scapes_door_input_event"]
+[connection signal="input_event" from="FloraDoor" to="." method="_on_flora_door_input_event"]
+[connection signal="input_event" from="AnimalsChart" to="." method="_on_animals_chart_input_event"]
+[connection signal="input_event" from="FloraChart" to="." method="_on_flora_chart_input_event"]
+[connection signal="input_event" from="LandScapeChart" to="." method="_on_land_scape_chart_input_event"]

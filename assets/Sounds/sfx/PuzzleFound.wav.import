@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://lrfuqkulrwqv"
-path="res://.godot/imported/SWAV_19.wav-3720f6565ad1af6cace171777ee83aad.sample"
+path="res://.godot/imported/PuzzleFound.wav-82b5bd26f260ea7620a07ffd447a0b56.sample"
 
 [deps]
 
-source_file="res://assets/Sounds/sfx/SWAV_19.wav"
-dest_files=["res://.godot/imported/SWAV_19.wav-3720f6565ad1af6cace171777ee83aad.sample"]
+source_file="res://assets/Sounds/sfx/PuzzleFound.wav"
+dest_files=["res://.godot/imported/PuzzleFound.wav-82b5bd26f260ea7620a07ffd447a0b56.sample"]
 
 [params]
 

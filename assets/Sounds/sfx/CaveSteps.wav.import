@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c4lsih67krivq"
-path="res://.godot/imported/SWAV_28.wav-db6e81bb45021bfb06af4fda5e27b939.sample"
+uid="uid://2cvsbwjojn0w"
+path="res://.godot/imported/CaveSteps.wav-65bcbb85c7005e5fc17ffe542e7a2cc4.sample"
 
 [deps]
 
-source_file="res://assets/Sounds/sfx/SWAV_28.wav"
-dest_files=["res://.godot/imported/SWAV_28.wav-db6e81bb45021bfb06af4fda5e27b939.sample"]
+source_file="res://assets/Sounds/sfx/CaveSteps.wav"
+dest_files=["res://.godot/imported/CaveSteps.wav-65bcbb85c7005e5fc17ffe542e7a2cc4.sample"]
 
 [params]
 

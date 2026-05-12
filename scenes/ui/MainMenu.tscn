@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://d0urna8s3kgxf"]
+
+[ext_resource type="Script" uid="uid://dysjw5mcntyew" path="res://scripts/Ui/main_menu.gd" id="1_clp4r"]
+[ext_resource type="Texture2D" uid="uid://cfdop7sqjdfyi" path="res://assets/Rooms/PrincipalRoom.png" id="1_vjtqc"]
+[ext_resource type="Texture2D" uid="uid://bv33y5w6o2ubt" path="res://assets/Ui/play.png" id="2_6jbdy"]
+[ext_resource type="Texture2D" uid="uid://cxg0y5ipjwv2y" path="res://assets/Ui/border.png" id="2_xpiny"]
+[ext_resource type="Texture2D" uid="uid://s88w407krqgc" path="res://assets/Ui/playHover.png" id="4_7mi0g"]
+[ext_resource type="Texture2D" uid="uid://deh3tvpk5y6ru" path="res://assets/Ui/controls.png" id="4_bhu4a"]
+[ext_resource type="Texture2D" uid="uid://bevtbibeyxb5w" path="res://assets/Ui/exit.png" id="5_e2per"]
+[ext_resource type="Texture2D" uid="uid://bjak8c0rlp2ob" path="res://assets/Ui/controlsHover.png" id="6_nqjyj"]
+[ext_resource type="Texture2D" uid="uid://dcck8ejcq5a0c" path="res://assets/Ui/exitHover.png" id="8_7vr37"]
+[ext_resource type="Texture2D" uid="uid://dnrfwfyrcut3e" path="res://assets/Ui/playPressed.png" id="9_kncl5"]
+[ext_resource type="Texture2D" uid="uid://cdws76yehsp5u" path="res://assets/Ui/controlsPressed.png" id="10_clp4r"]
+[ext_resource type="Texture2D" uid="uid://cgykui3871ilq" path="res://assets/Ui/exitPressed.png" id="11_ee60a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwbf0"]
+texture = ExtResource("2_6jbdy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qjd48"]
+texture = ExtResource("9_kncl5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vr37"]
+texture = ExtResource("4_7mi0g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7mi0g"]
+texture = ExtResource("4_bhu4a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ff4wq"]
+texture = ExtResource("10_clp4r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_clp4r"]
+texture = ExtResource("6_nqjyj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqjyj"]
+texture = ExtResource("5_e2per")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqw28"]
+texture = ExtResource("11_ee60a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ee60a"]
+texture = ExtResource("8_7vr37")
+
+[node name="MainMenu" type="Control" unique_id=1370692833]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_clp4r")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1749469940]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vjtqc")
+
+[node name="Border" type="TextureRect" parent="." unique_id=1422364773]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -135.0
+offset_right = 189.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xpiny")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1732007952]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -61.957214
+offset_right = 147.0
+offset_bottom = 200.04279
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=1206009868]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_iwbf0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qjd48")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7vr37")
+
+[node name="Controls" type="Button" parent="VBoxContainer" unique_id=1635220447]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ff4wq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_clp4r")
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=833384113]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_nqjyj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nqw28")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ee60a")
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

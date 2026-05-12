@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://17146nrn61r0"]
 
+[ext_resource type="Texture2D" uid="uid://cfdop7sqjdfyi" path="res://assets/Rooms/PrincipalRoom.png" id="1_empr4"]
+[ext_resource type="Script" uid="uid://bw3ciooe5t26i" path="res://scripts/Ui/controls.gd" id="1_neoqp"]
+[ext_resource type="Texture2D" uid="uid://2u4csece4ivx" path="res://assets/Ui/borderControls.png" id="2_ya2rr"]
+[ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_1yfo7"]
+
 [node name="Controls" type="Control" unique_id=307206614]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +12,86 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_neoqp")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1155163031]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_empr4")
+
+[node name="Border" type="TextureRect" parent="." unique_id=1685758104]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -238.5
+offset_right = 250.0
+offset_bottom = 238.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ya2rr")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=827397248]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -30.0
+offset_right = 208.0
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer" unique_id=2082026531]
+layout_mode = 2
+text = "Select / Drag Piece"
+
+[node name="Label2" type="Label" parent="GridContainer" unique_id=767320500]
+layout_mode = 2
+text = "Left Click (Hold)"
+
+[node name="Label3" type="Label" parent="GridContainer" unique_id=1369608211]
+layout_mode = 2
+text = "Rotate Piece"
+
+[node name="Label4" type="Label" parent="GridContainer" unique_id=983937005]
+layout_mode = 2
+text = "	Right Click or R (while holding/dragging)"
+
+[node name="Label5" type="Label" parent="GridContainer" unique_id=1259782191]
+layout_mode = 2
+text = "Zoom In/Out"
+
+[node name="Label6" type="Label" parent="GridContainer" unique_id=1834494619]
+layout_mode = 2
+text = "Mouse Wheel"
+
+[node name="Label7" type="Label" parent="GridContainer" unique_id=1186152546]
+layout_mode = 2
+text = "Menu / Back"
+
+[node name="Label8" type="Label" parent="GridContainer" unique_id=1743448597]
+layout_mode = 2
+text = "Esc"
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1765701592]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 526.0
+offset_right = 124.0
+offset_bottom = 630.0
+texture_normal = ExtResource("3_1yfo7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

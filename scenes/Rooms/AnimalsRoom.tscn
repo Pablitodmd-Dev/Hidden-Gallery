@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cagbc8upyqwxn" path="res://assets/Rooms/AnimalsRoomCleaned.png" id="2_bms26"]
 [ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_2xhq2"]
 [ext_resource type="AudioStream" uid="uid://b8th7lsb5ktve" path="res://assets/Sounds/sfx/NormalSteps.wav" id="5_y6m8h"]
+[ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="6_57udg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s27vk"]
+size = Vector2(362.5, 222.5)
 
 [sub_resource type="Animation" id="Animation_hgwkw"]
 length = 0.001
@@ -117,7 +121,51 @@ texture_normal = ExtResource("3_2xhq2")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="StepsSound" type="AudioStreamPlayer2D" parent="." unique_id=521326974]
+stream = ExtResource("5_y6m8h")
+volume_db = -10.0
+
+[node name="AnimalChart1" type="Area2D" parent="." unique_id=48656130]
+position = Vector2(-2, 0)
+
+[node name="Chart" type="Sprite2D" parent="AnimalChart1" unique_id=658464525]
+position = Vector2(301, 262)
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("6_57udg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart1" unique_id=1052224759]
+position = Vector2(300.75, 262.75)
+shape = SubResource("RectangleShape2D_s27vk")
+debug_color = Color(0.593101, 0.5399531, 0.22091404, 0.41960785)
+
+[node name="AnimalChart2" type="Area2D" parent="." unique_id=150093578]
+position = Vector2(547, 0)
+
+[node name="Chart" type="Sprite2D" parent="AnimalChart2" unique_id=1919220515]
+position = Vector2(301, 262)
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("6_57udg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart2" unique_id=1784211004]
+position = Vector2(300.75, 262.75)
+shape = SubResource("RectangleShape2D_s27vk")
+debug_color = Color(0.3107405, 0.601835, 0.5065978, 0.41960785)
+
+[node name="AnimalChart3" type="Area2D" parent="." unique_id=62094558]
+position = Vector2(269, 256)
+
+[node name="Chart" type="Sprite2D" parent="AnimalChart3" unique_id=319898625]
+position = Vector2(301, 262)
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("6_57udg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart3" unique_id=1149015468]
+position = Vector2(300.75, 262.75)
+shape = SubResource("RectangleShape2D_s27vk")
+debug_color = Color(0.6843991, 0.4383592, 0.6531308, 0.41960785)
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=247799214]
+visible = false
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -125,9 +173,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1072336641]
 libraries/ = SubResource("AnimationLibrary_57udg")
-
-[node name="StepsSound" type="AudioStreamPlayer2D" parent="." unique_id=521326974]
-stream = ExtResource("5_y6m8h")
-volume_db = -10.0
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

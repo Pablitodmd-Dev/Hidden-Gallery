@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c40ejjhoewfo0" path="res://assets/Rooms/LandscapeRoomCleaned.png" id="2_5xvms"]
 [ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_dim0j"]
 [ext_resource type="AudioStream" uid="uid://b8th7lsb5ktve" path="res://assets/Sounds/sfx/NormalSteps.wav" id="5_sj86m"]
+[ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="6_dma2u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fe37w"]
+size = Vector2(362.5, 222.5)
 
 [sub_resource type="Animation" id="Animation_hgwkw"]
 length = 0.001
@@ -117,7 +121,38 @@ texture_normal = ExtResource("3_dim0j")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="StepsSound" type="AudioStreamPlayer2D" parent="." unique_id=1039837900]
+stream = ExtResource("5_sj86m")
+volume_db = -10.0
+
+[node name="AnimalChart1" type="Area2D" parent="." unique_id=1080176408]
+position = Vector2(-24, 18)
+
+[node name="Chart" type="Sprite2D" parent="AnimalChart1" unique_id=1379220742]
+position = Vector2(301, 262)
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("6_dma2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart1" unique_id=1906157905]
+position = Vector2(300.75, 262.75)
+shape = SubResource("RectangleShape2D_fe37w")
+debug_color = Color(0.593101, 0.5399531, 0.22091404, 0.41960785)
+
+[node name="AnimalChart2" type="Area2D" parent="." unique_id=1219781723]
+position = Vector2(593, 210)
+
+[node name="Chart" type="Sprite2D" parent="AnimalChart2" unique_id=1003465723]
+position = Vector2(301, 262)
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("6_dma2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart2" unique_id=1752360114]
+position = Vector2(300.75, 262.75)
+shape = SubResource("RectangleShape2D_fe37w")
+debug_color = Color(0.3107405, 0.601835, 0.5065978, 0.41960785)
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1254796533]
+visible = false
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -125,9 +160,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1953295851]
 libraries/ = SubResource("AnimationLibrary_dma2u")
-
-[node name="StepsSound" type="AudioStreamPlayer2D" parent="." unique_id=1039837900]
-stream = ExtResource("5_sj86m")
-volume_db = -10.0
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

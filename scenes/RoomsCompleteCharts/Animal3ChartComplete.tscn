@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dv4cexagppu80"]
+
+[ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="1_ixqd2"]
+[ext_resource type="Texture2D" uid="uid://kncv0rf2syc1" path="res://assets/Paintings/Animal3.png" id="2_ixqd2"]
+
+[node name="Animal3ChartComplete" type="Node2D" unique_id=511959938]
+
+[node name="Chart" type="Sprite2D" parent="." unique_id=464889513]
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("1_ixqd2")
+
+[node name="Image" type="Sprite2D" parent="." unique_id=1481254981]
+position = Vector2(0.5000007, -0.50000906)
+scale = Vector2(0.31634614, 0.2470588)
+texture = ExtResource("2_ixqd2")

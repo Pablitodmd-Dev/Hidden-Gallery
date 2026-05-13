@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_h0ggu"]
 [ext_resource type="AudioStream" uid="uid://b8th7lsb5ktve" path="res://assets/Sounds/sfx/NormalSteps.wav" id="5_cdm5a"]
 [ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="6_obvqg"]
+[ext_resource type="PackedScene" uid="uid://ujkikwuluwfr" path="res://scenes/RoomsCompleteCharts/Flora1ChartComplete.tscn" id="7_l0ldu"]
+[ext_resource type="PackedScene" uid="uid://bfkh4clvmccls" path="res://scenes/RoomsCompleteCharts/Flora2ChartComplete.tscn" id="8_3loty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0ldu"]
-size = Vector2(362.5, 222.5)
+size = Vector2(274, 351)
 
 [sub_resource type="Animation" id="Animation_hgwkw"]
 length = 0.001
@@ -125,31 +127,39 @@ stretch_mode = 0
 stream = ExtResource("5_cdm5a")
 volume_db = -10.0
 
-[node name="AnimalChart1" type="Area2D" parent="." unique_id=1557386089]
-position = Vector2(-56, -14)
+[node name="FloralChart1" type="Area2D" parent="." unique_id=1557386089]
+position = Vector2(-61, -8)
 
-[node name="Chart" type="Sprite2D" parent="AnimalChart1" unique_id=1511119670]
-position = Vector2(301, 262)
-scale = Vector2(0.35783836, 0.34923077)
+[node name="Chart" type="Sprite2D" parent="FloralChart1" unique_id=1511119670]
+position = Vector2(330.5, 325.25)
+scale = Vector2(0.26971763, 0.54384613)
 texture = ExtResource("6_obvqg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart1" unique_id=812874325]
-position = Vector2(300.75, 262.75)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloralChart1" unique_id=812874325]
+position = Vector2(331, 326.25)
 shape = SubResource("RectangleShape2D_l0ldu")
 debug_color = Color(0.593101, 0.5399531, 0.22091404, 0.41960785)
 
-[node name="AnimalChart2" type="Area2D" parent="." unique_id=410569256]
-position = Vector2(627, 217)
+[node name="Flora1ChartComplete" parent="." unique_id=555461130 instance=ExtResource("7_l0ldu")]
+visible = false
+position = Vector2(273, 311)
 
-[node name="Chart" type="Sprite2D" parent="AnimalChart2" unique_id=23744597]
-position = Vector2(301, 262)
-scale = Vector2(0.35783836, 0.34923077)
+[node name="FloralChart2" type="Area2D" parent="." unique_id=410569256]
+position = Vector2(627, 207)
+
+[node name="Chart" type="Sprite2D" parent="FloralChart2" unique_id=23744597]
+position = Vector2(301.5, 236.5)
+scale = Vector2(0.26582277, 0.54923075)
 texture = ExtResource("6_obvqg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart2" unique_id=2061269854]
-position = Vector2(300.75, 262.75)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloralChart2" unique_id=2061269854]
+position = Vector2(300.75, 236.5)
 shape = SubResource("RectangleShape2D_l0ldu")
 debug_color = Color(0.3107405, 0.601835, 0.5065978, 0.41960785)
+
+[node name="Flora2ChartComplete" parent="." unique_id=549599049 instance=ExtResource("8_3loty")]
+visible = false
+position = Vector2(928, 446)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1700323716]
 libraries/ = SubResource("AnimationLibrary_obvqg")

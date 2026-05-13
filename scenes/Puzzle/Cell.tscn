@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bynuq0pnnwfx8"]
+
+[ext_resource type="Script" uid="uid://ba7poxlsclqn7" path="res://scripts/Puzzle/Cell.gd" id="1_vb6yd"]
+
+[sub_resource type="Gradient" id="Gradient_h4lxt"]
+offsets = PackedFloat32Array(0.5120192)
+colors = PackedColorArray(0.21230498, 0.2123048, 0.21230489, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ip5ti"]
+gradient = SubResource("Gradient_h4lxt")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smj4q"]
+
+[node name="Cell" type="Area2D" unique_id=1752007539]
+script = ExtResource("1_vb6yd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1286747903]
+scale = Vector2(1, 256)
+texture = SubResource("GradientTexture1D_ip5ti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=246580478]
+shape = SubResource("RectangleShape2D_smj4q")

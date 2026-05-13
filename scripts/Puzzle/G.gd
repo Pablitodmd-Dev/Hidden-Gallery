@@ -1,19 +1,20 @@
 extends Node
 
+var next_texture: Texture2D
+var next_columns: int = 4
+var next_rows: int = 2
+
+# Listas de trabajo
 var cells = []
 var pieces = []
-const images = [
-	"res://assets/Paintings/Animal1.png",
-	"res://assets/Paintings/Animal2.png",
-	"res://assets/Paintings/Animal3.png"
-]
-
-var columns = 4
-var rows = 2
-var target_width = 800.0
-
 var is_any_piece_dragging = false
 
-func get_image():
-	var image = Image.load_from_file(images.pick_random())
-	return ImageTexture.create_from_image(image)
+func reset_puzzle_data():
+	cells.clear()
+	pieces.clear()
+	is_any_piece_dragging = false
+
+func set_next_puzzle(tex: Texture2D, cols: int, rs: int):
+	next_texture = tex
+	next_columns = cols
+	next_rows = rs

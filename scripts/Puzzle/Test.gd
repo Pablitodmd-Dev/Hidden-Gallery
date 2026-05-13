@@ -5,21 +5,29 @@ extends Node2D
 @onready var cell_scene = preload("res://scenes/Puzzle/Cell.tscn")
 @onready var piece_scene = preload("res://scenes/Puzzle/PuzzlePiece.tscn")
 
+var target_width: float = 800.0
+
 func _ready():
-	if cell_container and piece_container:
+	if G.next_texture:
 		start_game()
+	else:
+		push_error("No hay textura en G. ¿Viniste desde una habitación?")
 
 func start_game():
-	var texture = G.get_image()
-	var scale_factor = G.target_width / texture.get_width()
+	G.reset_puzzle_data()
 	
-	var unit_width = texture.get_width() / G.columns
-	var unit_height = texture.get_height() / G.rows
+	var texture = G.next_texture
+	var cols = G.next_columns
+	var rows = G.next_rows
+	
+	var scale_factor = target_width / texture.get_width()
+	var unit_width = texture.get_width() / cols
+	var unit_height = texture.get_height() / rows
 	var scaled_unit_size = Vector2(unit_width, unit_height) * scale_factor
 
-	for y in range(G.rows):
-		for x in range(G.columns):
-			var idx = (y * G.columns) + x
+	for y in range(rows):
+		for x in range(cols):
+			var idx = (y * cols) + x
 			
 			var cell = cell_scene.instantiate()
 			cell_container.add_child(cell)

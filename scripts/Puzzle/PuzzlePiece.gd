@@ -27,7 +27,6 @@ func _input_event(_viewport, event, _idx):
 			is_dragging = true
 			G.is_any_piece_dragging = true
 			z_index = 10
-			
 			get_viewport().set_input_as_handled()
 			
 		elif not event.pressed and is_dragging:

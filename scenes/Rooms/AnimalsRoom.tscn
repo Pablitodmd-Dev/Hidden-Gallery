@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://b6gwmjbgs8c3a" path="res://scripts/Rooms/animals_room.gd" id="1_hgwkw"]
 [ext_resource type="Texture2D" uid="uid://b7mk4jnkc7uju" path="res://assets/Rooms/AnimalsRoomBroken.png" id="1_tm1s4"]
 [ext_resource type="Texture2D" uid="uid://cagbc8upyqwxn" path="res://assets/Rooms/AnimalsRoomCleaned.png" id="2_bms26"]
+[ext_resource type="Texture2D" uid="uid://dfstdfv7skr4i" path="res://assets/Paintings/Animal1.png" id="2_s27vk"]
 [ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_2xhq2"]
+[ext_resource type="Texture2D" uid="uid://rxhd2unb5qx8" path="res://assets/Paintings/Animal2.png" id="3_wk36f"]
+[ext_resource type="Texture2D" uid="uid://kncv0rf2syc1" path="res://assets/Paintings/Animal3.png" id="4_7lqto"]
 [ext_resource type="AudioStream" uid="uid://b8th7lsb5ktve" path="res://assets/Sounds/sfx/NormalSteps.wav" id="5_y6m8h"]
 [ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="6_57udg"]
 [ext_resource type="PackedScene" uid="uid://dbqhvhasufcue" path="res://scenes/RoomsCompleteCharts/Animal1ChartComplete.tscn" id="7_qvk1k"]
@@ -100,7 +103,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_hgwkw")
+texture_animal_1 = ExtResource("2_s27vk")
+texture_animal_2 = ExtResource("3_wk36f")
+texture_animal_3 = ExtResource("4_7lqto")
 
 [node name="BrokenImage" type="TextureRect" parent="." unique_id=1224632603]
 layout_mode = 0
@@ -193,3 +200,6 @@ color = Color(0, 0, 0, 1)
 libraries/ = SubResource("AnimationLibrary_57udg")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="input_event" from="AnimalChart1" to="." method="_on_animal_chart_1_input_event"]
+[connection signal="input_event" from="AnimalChart2" to="." method="_on_animal_chart_2_input_event"]
+[connection signal="input_event" from="AnimalChart3" to="." method="_on_animal_chart_3_input_event"]

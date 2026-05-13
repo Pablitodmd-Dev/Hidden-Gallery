@@ -14,16 +14,25 @@ func setup_piece(p_index, p_texture, p_region, p_scale):
 	atlas.region = p_region
 	sprite.texture = atlas
 	sprite.scale = Vector2(p_scale, p_scale)
+	
 	if collision.shape:
 		collision.shape.size = p_region.size * p_scale
 
 func _input_event(_viewport, event, _idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed and not is_locked:
+			if G.is_any_piece_dragging:
+				return
+				
 			is_dragging = true
+			G.is_any_piece_dragging = true
 			z_index = 10
-		else:
+			
+			get_viewport().set_input_as_handled()
+			
+		elif not event.pressed and is_dragging:
 			is_dragging = false
+			G.is_any_piece_dragging = false
 			z_index = 0
 			check_distance()
 

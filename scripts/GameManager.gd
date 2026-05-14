@@ -1,14 +1,11 @@
 extends Node
 
-# Animales
-var puzzle_animal_1 = false
-var puzzle_animal_2 = false
-var puzzle_animal_3 = false
+var Animal_puzzle_1 = false
+var Animal_puzzle_2 = false
+var Animal_puzzle_3 = false
 
-# Flora
-var puzzle_flora_1 = false
-var puzzle_flora_2 = false
+var Flower_Puzzle_1 = false
+var Flower_Puzzle_2 = false
 
-# Paisajes
-var puzzle_landscape_1 = false
-var puzzle_landscape_2 = false
+var Landscape_Puzzle_1 = false
+var Landscape_Puzzle_2 = false

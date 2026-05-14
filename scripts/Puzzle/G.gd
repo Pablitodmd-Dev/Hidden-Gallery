@@ -4,7 +4,6 @@ var next_texture: Texture2D
 var next_columns: int = 4
 var next_rows: int = 2
 
-# Listas de trabajo
 var cells = []
 var pieces = []
 var is_any_piece_dragging = false

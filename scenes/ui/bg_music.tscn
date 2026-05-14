@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ciokghl3hfrqc"]
+
+[ext_resource type="AudioStream" uid="uid://dg0etbs3qmil6" path="res://assets/Sounds/bgMusic/RelaxingPiano.mp3" id="1_b8qkf"]
+
+[node name="BG Music" type="AudioStreamPlayer" unique_id=723256132]
+stream = ExtResource("1_b8qkf")
+volume_db = -20.0
+autoplay = true

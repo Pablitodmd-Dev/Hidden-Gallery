@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://g4xnhmqbmgws" path="res://scripts/Rooms/landscape_room.gd" id="1_igycr"]
 [ext_resource type="Texture2D" uid="uid://cxxrplwu5sjid" path="res://assets/Rooms/LandscapeRoomBroken.png" id="1_ugd33"]
 [ext_resource type="Texture2D" uid="uid://c40ejjhoewfo0" path="res://assets/Rooms/LandscapeRoomCleaned.png" id="2_5xvms"]
+[ext_resource type="Texture2D" uid="uid://dnj3mg1cg1oe3" path="res://assets/Paintings/landscape1.png" id="2_jjr7l"]
 [ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_dim0j"]
+[ext_resource type="Texture2D" uid="uid://cbp31mgdtfy6n" path="res://assets/Paintings/landscape2.png" id="3_r5y5c"]
 [ext_resource type="AudioStream" uid="uid://b8th7lsb5ktve" path="res://assets/Sounds/sfx/NormalSteps.wav" id="5_sj86m"]
 [ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="6_dma2u"]
 [ext_resource type="PackedScene" uid="uid://145bj15hbu6t" path="res://scenes/RoomsCompleteCharts/Landscape1ChartComplete.tscn" id="7_7wppx"]
@@ -96,7 +98,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_igycr")
+texture_landscape_1 = ExtResource("2_jjr7l")
+texture_landscape_2 = ExtResource("3_r5y5c")
 
 [node name="BrokenImage" type="TextureRect" parent="." unique_id=1239654525]
 layout_mode = 0
@@ -127,15 +132,15 @@ stretch_mode = 0
 stream = ExtResource("5_sj86m")
 volume_db = -10.0
 
-[node name="FlowerChart1" type="Area2D" parent="." unique_id=1080176408]
+[node name="LandscapeChart1" type="Area2D" parent="." unique_id=1080176408]
 position = Vector2(-24, 18)
 
-[node name="Chart" type="Sprite2D" parent="FlowerChart1" unique_id=1379220742]
+[node name="Chart" type="Sprite2D" parent="LandscapeChart1" unique_id=1379220742]
 position = Vector2(301, 262)
 scale = Vector2(0.35783836, 0.34923077)
 texture = ExtResource("6_dma2u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlowerChart1" unique_id=1906157905]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LandscapeChart1" unique_id=1906157905]
 position = Vector2(300.75, 262.75)
 shape = SubResource("RectangleShape2D_fe37w")
 debug_color = Color(0.593101, 0.5399531, 0.22091404, 0.41960785)
@@ -144,15 +149,15 @@ debug_color = Color(0.593101, 0.5399531, 0.22091404, 0.41960785)
 visible = false
 position = Vector2(278, 282)
 
-[node name="FlowerChart2" type="Area2D" parent="." unique_id=1219781723]
+[node name="LandscapeChart2" type="Area2D" parent="." unique_id=1219781723]
 position = Vector2(593, 210)
 
-[node name="Chart" type="Sprite2D" parent="FlowerChart2" unique_id=1003465723]
+[node name="Chart" type="Sprite2D" parent="LandscapeChart2" unique_id=1003465723]
 position = Vector2(301, 262)
 scale = Vector2(0.35783836, 0.34923077)
 texture = ExtResource("6_dma2u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlowerChart2" unique_id=1752360114]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LandscapeChart2" unique_id=1752360114]
 position = Vector2(300.75, 262.75)
 shape = SubResource("RectangleShape2D_fe37w")
 debug_color = Color(0.3107405, 0.601835, 0.5065978, 0.41960785)
@@ -172,3 +177,5 @@ color = Color(0, 0, 0, 1)
 libraries/ = SubResource("AnimationLibrary_dma2u")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="input_event" from="LandscapeChart1" to="." method="_on_landscape_chart_1_input_event"]
+[connection signal="input_event" from="LandscapeChart2" to="." method="_on_landscape_chart_2_input_event"]

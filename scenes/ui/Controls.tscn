@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cfdop7sqjdfyi" path="res://assets/Rooms/PrincipalRoom.png" id="1_empr4"]
 [ext_resource type="Script" uid="uid://bw3ciooe5t26i" path="res://scripts/Ui/controls.gd" id="1_neoqp"]
-[ext_resource type="Texture2D" uid="uid://2u4csece4ivx" path="res://assets/Ui/borderControls.png" id="2_ya2rr"]
 [ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_1yfo7"]
+[ext_resource type="Texture2D" uid="uid://bsbudowx5jwfw" path="res://assets/Ui/ControlsBorder.png" id="3_neoqp"]
+[ext_resource type="AudioStream" uid="uid://b6vfmymcke2j3" path="res://assets/Sounds/sfx/Pop.wav" id="5_lhur5"]
 
 [node name="Controls" type="Control" unique_id=307206614]
 layout_mode = 3
@@ -30,59 +31,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -238.5
-offset_right = 250.0
-offset_bottom = 238.5
+offset_left = -350.0
+offset_top = -218.25
+offset_right = 350.0
+offset_bottom = 218.25
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ya2rr")
-
-[node name="GridContainer" type="GridContainer" parent="." unique_id=827397248]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -179.0
-offset_top = -30.0
-offset_right = 208.0
-offset_bottom = 183.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="GridContainer" unique_id=2082026531]
-layout_mode = 2
-text = "Select / Drag Piece"
-
-[node name="Label2" type="Label" parent="GridContainer" unique_id=767320500]
-layout_mode = 2
-text = "Left Click (Hold)"
-
-[node name="Label3" type="Label" parent="GridContainer" unique_id=1369608211]
-layout_mode = 2
-text = "Rotate Piece"
-
-[node name="Label4" type="Label" parent="GridContainer" unique_id=983937005]
-layout_mode = 2
-text = "	Right Click or R (while holding/dragging)"
-
-[node name="Label5" type="Label" parent="GridContainer" unique_id=1259782191]
-layout_mode = 2
-text = "Zoom In/Out"
-
-[node name="Label6" type="Label" parent="GridContainer" unique_id=1834494619]
-layout_mode = 2
-text = "Mouse Wheel"
-
-[node name="Label7" type="Label" parent="GridContainer" unique_id=1186152546]
-layout_mode = 2
-text = "Menu / Back"
-
-[node name="Label8" type="Label" parent="GridContainer" unique_id=1743448597]
-layout_mode = 2
-text = "Esc"
+texture = ExtResource("3_neoqp")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1765701592]
 layout_mode = 0
@@ -93,5 +48,79 @@ offset_bottom = 630.0
 texture_normal = ExtResource("3_1yfo7")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1821827804]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -49.5
+offset_right = 248.0
+offset_bottom = 155.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=827397248]
+z_index = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer" unique_id=2082026531]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Select / Drag Piece:  "
+
+[node name="Label2" type="Label" parent="VBoxContainer/GridContainer" unique_id=767320500]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = " Left Click (Hold)"
+
+[node name="Label3" type="Label" parent="VBoxContainer/GridContainer" unique_id=1369608211]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Rotate Piece:"
+
+[node name="Label4" type="Label" parent="VBoxContainer/GridContainer" unique_id=983937005]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = " Right Click
+ (while holding)"
+
+[node name="Label5" type="Label" parent="VBoxContainer/GridContainer" unique_id=1259782191]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Zoom In/Out:"
+
+[node name="Label6" type="Label" parent="VBoxContainer/GridContainer" unique_id=1834494619]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = " Mouse Wheel"
+
+[node name="Label7" type="Label" parent="VBoxContainer/GridContainer" unique_id=1186152546]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Menu / Back:"
+
+[node name="Label8" type="Label" parent="VBoxContainer/GridContainer" unique_id=1743448597]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = " Esc"
+
+[node name="Pop" type="AudioStreamPlayer" parent="." unique_id=1364484788]
+stream = ExtResource("5_lhur5")
+volume_db = -20.0
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

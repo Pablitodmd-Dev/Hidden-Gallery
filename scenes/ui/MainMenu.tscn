@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dnrfwfyrcut3e" path="res://assets/Ui/playPressed.png" id="9_kncl5"]
 [ext_resource type="Texture2D" uid="uid://cdws76yehsp5u" path="res://assets/Ui/controlsPressed.png" id="10_clp4r"]
 [ext_resource type="Texture2D" uid="uid://cgykui3871ilq" path="res://assets/Ui/exitPressed.png" id="11_ee60a"]
+[ext_resource type="AudioStream" uid="uid://b6vfmymcke2j3" path="res://assets/Sounds/sfx/Pop.wav" id="13_ee60a"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwbf0"]
 texture = ExtResource("2_6jbdy")
@@ -114,6 +115,10 @@ size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_nqjyj")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nqw28")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ee60a")
+
+[node name="Pop" type="AudioStreamPlayer" parent="." unique_id=1413821895]
+stream = ExtResource("13_ee60a")
+volume_db = -20.0
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_pressed"]

@@ -10,8 +10,6 @@ var target_width: float = 800.0
 func _ready():
 	if G.next_texture:
 		start_game()
-	else:
-		push_error("No hay textura en G. ¿Viniste desde una habitación?")
 
 func start_game():
 	G.reset_puzzle_data()

@@ -17,7 +17,7 @@
 size = Vector2(365, 224)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s27vk"]
-size = Vector2(323, 222.5)
+size = Vector2(326.75, 222.5)
 
 [sub_resource type="Animation" id="Animation_hgwkw"]
 length = 0.001
@@ -181,7 +181,7 @@ scale = Vector2(0.35783836, 0.34923077)
 texture = ExtResource("6_57udg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart3" unique_id=1149015468]
-position = Vector2(300.75, 262.75)
+position = Vector2(302.625, 262.75)
 shape = SubResource("RectangleShape2D_s27vk")
 debug_color = Color(0.6843991, 0.4383592, 0.6531308, 0.41960785)
 

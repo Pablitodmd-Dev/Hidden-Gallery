@@ -1,5 +1,13 @@
 extends Control
 
+func _ready() -> void:
+	var backgroundMusic = load("res://assets/Sounds/bgMusic/RelaxingPiano.mp3")
+	
+	if MusicPlayer.stream != backgroundMusic:
+		MusicPlayer.stream = backgroundMusic
+		MusicPlayer.volume_db = -25.0
+		MusicPlayer.play()
+
 func _on_play_pressed() -> void:
 	$Pop.play()
 	await $Pop.finished

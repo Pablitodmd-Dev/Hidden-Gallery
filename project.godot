@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Hidden-Gallery"
+run/main_scene="uid://d0urna8s3kgxf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +20,7 @@ config/icon="res://icon.svg"
 GameManager="*uid://b5hf5i4of27bv"
 G="*uid://dhxqxdh5susou"
 BgMusic="*uid://ciokghl3hfrqc"
+MusicPlayer="*uid://dspb0nkeww442"
 
 [physics]
 

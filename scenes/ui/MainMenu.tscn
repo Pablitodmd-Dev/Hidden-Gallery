@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cdws76yehsp5u" path="res://assets/Ui/controlsPressed.png" id="10_clp4r"]
 [ext_resource type="Texture2D" uid="uid://cgykui3871ilq" path="res://assets/Ui/exitPressed.png" id="11_ee60a"]
 [ext_resource type="AudioStream" uid="uid://b6vfmymcke2j3" path="res://assets/Sounds/sfx/Pop.wav" id="13_ee60a"]
+[ext_resource type="Texture2D" uid="uid://klhtp8tswo34" path="res://assets/Ui/GameName.png" id="14_qjd48"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwbf0"]
 texture = ExtResource("2_6jbdy")
@@ -119,6 +120,15 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_ee60a")
 [node name="Pop" type="AudioStreamPlayer" parent="." unique_id=1413821895]
 stream = ExtResource("13_ee60a")
 volume_db = -20.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=761950279]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 57.0
+offset_right = 749.0
+offset_bottom = 180.0
+texture = ExtResource("14_qjd48")
+expand_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_pressed"]

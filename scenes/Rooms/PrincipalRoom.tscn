@@ -78,6 +78,7 @@ scale = Vector2(1.125, 1.476082)
 texture = ExtResource("1_t70nw")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=669869330]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2

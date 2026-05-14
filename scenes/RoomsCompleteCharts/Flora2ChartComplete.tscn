@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bfkh4clvmccls"]
+
+[ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="1_4v2gj"]
+[ext_resource type="Texture2D" uid="uid://du3fkbj4tt82u" path="res://assets/Paintings/flower2.png" id="2_4v2gj"]
+
+[node name="Flora2ChartComplete" type="Node2D" unique_id=555461130]
+
+[node name="Chart" type="Sprite2D" parent="." unique_id=2130427221]
+position = Vector2(-5.722046e-06, -4.0000076)
+scale = Vector2(0.26874393, 0.5538461)
+texture = ExtResource("1_4v2gj")
+
+[node name="Image" type="Sprite2D" parent="." unique_id=1751984926]
+position = Vector2(-0.50000787, -4.000007)
+scale = Vector2(0.40961853, 0.39477125)
+texture = ExtResource("2_4v2gj")

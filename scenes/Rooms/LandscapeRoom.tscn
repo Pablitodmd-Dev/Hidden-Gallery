@@ -4,6 +4,90 @@
 [ext_resource type="Texture2D" uid="uid://cxxrplwu5sjid" path="res://assets/Rooms/LandscapeRoomBroken.png" id="1_ugd33"]
 [ext_resource type="Texture2D" uid="uid://c40ejjhoewfo0" path="res://assets/Rooms/LandscapeRoomCleaned.png" id="2_5xvms"]
 [ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_dim0j"]
+[ext_resource type="AudioStream" uid="uid://b8th7lsb5ktve" path="res://assets/Sounds/sfx/NormalSteps.wav" id="5_sj86m"]
+[ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="6_dma2u"]
+[ext_resource type="PackedScene" uid="uid://145bj15hbu6t" path="res://scenes/RoomsCompleteCharts/Landscape1ChartComplete.tscn" id="7_7wppx"]
+[ext_resource type="PackedScene" uid="uid://by1e3qclwf2pa" path="res://scenes/RoomsCompleteCharts/Landscape2ChartComplete.tscn" id="8_jjr7l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fe37w"]
+size = Vector2(362.5, 222.5)
+
+[sub_resource type="Animation" id="Animation_hgwkw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepsSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y6m8h"]
+resource_name = "entering_scene"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_57udg"]
+resource_name = "leaving_scene"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepsSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dma2u"]
+_data = {
+&"RESET": SubResource("Animation_hgwkw"),
+&"entering_scene": SubResource("Animation_y6m8h"),
+&"leaving_scene": SubResource("Animation_57udg")
+}
 
 [node name="LandscapeRoom" type="Control" unique_id=2121968023]
 layout_mode = 3
@@ -38,5 +122,53 @@ offset_bottom = 630.0
 texture_normal = ExtResource("3_dim0j")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="StepsSound" type="AudioStreamPlayer2D" parent="." unique_id=1039837900]
+stream = ExtResource("5_sj86m")
+volume_db = -10.0
+
+[node name="FlowerChart1" type="Area2D" parent="." unique_id=1080176408]
+position = Vector2(-24, 18)
+
+[node name="Chart" type="Sprite2D" parent="FlowerChart1" unique_id=1379220742]
+position = Vector2(301, 262)
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("6_dma2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlowerChart1" unique_id=1906157905]
+position = Vector2(300.75, 262.75)
+shape = SubResource("RectangleShape2D_fe37w")
+debug_color = Color(0.593101, 0.5399531, 0.22091404, 0.41960785)
+
+[node name="Landscape1ChartComplete" parent="." unique_id=1675121758 instance=ExtResource("7_7wppx")]
+visible = false
+position = Vector2(278, 282)
+
+[node name="FlowerChart2" type="Area2D" parent="." unique_id=1219781723]
+position = Vector2(593, 210)
+
+[node name="Chart" type="Sprite2D" parent="FlowerChart2" unique_id=1003465723]
+position = Vector2(301, 262)
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("6_dma2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlowerChart2" unique_id=1752360114]
+position = Vector2(300.75, 262.75)
+shape = SubResource("RectangleShape2D_fe37w")
+debug_color = Color(0.3107405, 0.601835, 0.5065978, 0.41960785)
+
+[node name="Landscape2ChartComplete" parent="." unique_id=1252205331 instance=ExtResource("8_jjr7l")]
+visible = false
+position = Vector2(893, 473)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1254796533]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1953295851]
+libraries/ = SubResource("AnimationLibrary_dma2u")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

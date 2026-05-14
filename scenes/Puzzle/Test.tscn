@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b3jg66me5w56d"]
+
+[ext_resource type="Script" uid="uid://fuklken1mple" path="res://scripts/Puzzle/Test.gd" id="1_vcuj2"]
+
+[node name="Test" type="Node2D" unique_id=33757627]
+script = ExtResource("1_vcuj2")
+
+[node name="Cells" type="Node2D" parent="." unique_id=931514778]
+
+[node name="Pieces" type="Node2D" parent="." unique_id=292770033]

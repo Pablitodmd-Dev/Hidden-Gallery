@@ -3,7 +3,98 @@
 [ext_resource type="Script" uid="uid://b6gwmjbgs8c3a" path="res://scripts/Rooms/animals_room.gd" id="1_hgwkw"]
 [ext_resource type="Texture2D" uid="uid://b7mk4jnkc7uju" path="res://assets/Rooms/AnimalsRoomBroken.png" id="1_tm1s4"]
 [ext_resource type="Texture2D" uid="uid://cagbc8upyqwxn" path="res://assets/Rooms/AnimalsRoomCleaned.png" id="2_bms26"]
+[ext_resource type="Texture2D" uid="uid://dfstdfv7skr4i" path="res://assets/Paintings/Animal1.png" id="2_s27vk"]
 [ext_resource type="Texture2D" uid="uid://bpp2mqryhoh3j" path="res://assets/Rooms/Buttons/BackButton.png" id="3_2xhq2"]
+[ext_resource type="Texture2D" uid="uid://rxhd2unb5qx8" path="res://assets/Paintings/Animal2.png" id="3_wk36f"]
+[ext_resource type="Texture2D" uid="uid://kncv0rf2syc1" path="res://assets/Paintings/Animal3.png" id="4_7lqto"]
+[ext_resource type="AudioStream" uid="uid://b8th7lsb5ktve" path="res://assets/Sounds/sfx/NormalSteps.wav" id="5_y6m8h"]
+[ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="6_57udg"]
+[ext_resource type="PackedScene" uid="uid://dbqhvhasufcue" path="res://scenes/RoomsCompleteCharts/Animal1ChartComplete.tscn" id="7_qvk1k"]
+[ext_resource type="PackedScene" uid="uid://dlopdwnyusnos" path="res://scenes/RoomsCompleteCharts/Animal2ChartComplete.tscn" id="8_wk36f"]
+[ext_resource type="PackedScene" uid="uid://dv4cexagppu80" path="res://scenes/RoomsCompleteCharts/Animal3ChartComplete.tscn" id="9_wk36f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lqto"]
+size = Vector2(365, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s27vk"]
+size = Vector2(323, 222.5)
+
+[sub_resource type="Animation" id="Animation_hgwkw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepsSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y6m8h"]
+resource_name = "entering_scene"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_57udg"]
+resource_name = "leaving_scene"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepsSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_57udg"]
+_data = {
+&"RESET": SubResource("Animation_hgwkw"),
+&"entering_scene": SubResource("Animation_y6m8h"),
+&"leaving_scene": SubResource("Animation_57udg")
+}
 
 [node name="AnimalsRoom" type="Control" unique_id=1275927632]
 layout_mode = 3
@@ -12,7 +103,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_hgwkw")
+texture_animal_1 = ExtResource("2_s27vk")
+texture_animal_2 = ExtResource("3_wk36f")
+texture_animal_3 = ExtResource("4_7lqto")
 
 [node name="BrokenImage" type="TextureRect" parent="." unique_id=1224632603]
 layout_mode = 0
@@ -39,4 +134,72 @@ texture_normal = ExtResource("3_2xhq2")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="StepsSound" type="AudioStreamPlayer2D" parent="." unique_id=521326974]
+stream = ExtResource("5_y6m8h")
+volume_db = -10.0
+
+[node name="AnimalChart1" type="Area2D" parent="." unique_id=48656130]
+position = Vector2(-2, 0)
+
+[node name="Chart" type="Sprite2D" parent="AnimalChart1" unique_id=658464525]
+position = Vector2(301, 262)
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("6_57udg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart1" unique_id=1956279679]
+position = Vector2(301.5, 262)
+shape = SubResource("RectangleShape2D_7lqto")
+debug_color = Color(0.49301744, 0.57743245, 0.25047716, 0.41960785)
+
+[node name="Animal1ChartComplete" parent="." unique_id=511959938 instance=ExtResource("7_qvk1k")]
+visible = false
+position = Vector2(300, 264)
+
+[node name="AnimalChart2" type="Area2D" parent="." unique_id=150093578]
+position = Vector2(547, 0)
+
+[node name="Chart" type="Sprite2D" parent="AnimalChart2" unique_id=1919220515]
+position = Vector2(303.00006, 262)
+scale = Vector2(0.31937686, 0.34923077)
+texture = ExtResource("6_57udg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart2" unique_id=1784211004]
+position = Vector2(304.5, 262.75)
+shape = SubResource("RectangleShape2D_s27vk")
+debug_color = Color(0.3107405, 0.601835, 0.5065978, 0.41960785)
+
+[node name="Animal2ChartComplete" parent="." unique_id=2087874040 instance=ExtResource("8_wk36f")]
+visible = false
+position = Vector2(849, 263)
+
+[node name="AnimalChart3" type="Area2D" parent="." unique_id=62094558]
+position = Vector2(269, 256)
+
+[node name="Chart" type="Sprite2D" parent="AnimalChart3" unique_id=319898625]
+position = Vector2(301, 262)
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("6_57udg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalChart3" unique_id=1149015468]
+position = Vector2(300.75, 262.75)
+shape = SubResource("RectangleShape2D_s27vk")
+debug_color = Color(0.6843991, 0.4383592, 0.6531308, 0.41960785)
+
+[node name="Animal3ChartComplete" parent="." unique_id=1110276034 instance=ExtResource("9_wk36f")]
+visible = false
+position = Vector2(570, 518)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=247799214]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1072336641]
+libraries/ = SubResource("AnimationLibrary_57udg")
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="input_event" from="AnimalChart1" to="." method="_on_animal_chart_1_input_event"]
+[connection signal="input_event" from="AnimalChart2" to="." method="_on_animal_chart_2_input_event"]
+[connection signal="input_event" from="AnimalChart3" to="." method="_on_animal_chart_3_input_event"]

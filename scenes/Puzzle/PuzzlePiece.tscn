@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b0wwmuq33mt7p"]
+
+[ext_resource type="Script" uid="uid://bx6wrhgcbe35j" path="res://scripts/Puzzle/PuzzlePiece.gd" id="1_q7iro"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_defeq"]
+
+[node name="PuzzlePiece" type="Area2D" unique_id=2020916049]
+script = ExtResource("1_q7iro")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=881418156]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=248390546]
+shape = SubResource("RectangleShape2D_defeq")

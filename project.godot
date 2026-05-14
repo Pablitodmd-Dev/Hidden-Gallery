@@ -14,6 +14,11 @@ config/name="Hidden-Gallery"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://b5hf5i4of27bv"
+G="*uid://dhxqxdh5susou"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

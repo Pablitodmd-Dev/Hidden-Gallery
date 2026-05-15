@@ -55,3 +55,6 @@ func start_game():
 			var region = Rect2(x * orig_u_w, y * orig_u_h, orig_u_w + 1.0, orig_u_h + 1.0)
 			
 			piece.setup_piece(idx, texture, region, final_scale_vector)
+			
+			var angles = [0, 90, 180, 270]
+			piece.rotation_degrees = angles.pick_random()

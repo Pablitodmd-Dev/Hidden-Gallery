@@ -12,3 +12,9 @@ func setup_cell(p_index, p_size):
 	sprite.region_enabled = false
 	sprite.scale = p_size / sprite.texture.get_size()
 	sprite.modulate = Color(1, 1, 1, 0.1)
+
+func _on_mouse_entered() -> void:
+	sprite.modulate = Color(0.4, 0.4, 0.4, 0.3)
+
+func _on_mouse_exited() -> void:
+	sprite.modulate = Color(1, 1, 1, 0.1)

@@ -1,13 +1,15 @@
-extends Node2D 
+extends Node2D
 
-@onready var audio_player = $ChartsSounds 
-@onready var camera = $PrincipalZoom 
+@onready var audio_player = $ChartsSounds
+@onready var camera = $PrincipalZoom
 @onready var anim_player = $AnimationPlayer
-@onready var color_rect = $ColorRect 
+@onready var color_rect = $ColorRect
+@onready var background_cleaned = $BackgroundCleaned
 
 func _ready():
+	background_cleaned.visible = GameManager.all_puzzles_done()
+
 	color_rect.visible = true
-	
 	if anim_player.has_animation("fade_in"):
 		anim_player.play("fade_in")
 		await anim_player.animation_finished
@@ -18,22 +20,22 @@ func _ready():
 func transition_to_room(marker_node: Marker2D, target_scene: String):
 	set_process_input(false)
 	color_rect.visible = true
-	
+
 	var target_pos = marker_node.global_position
 	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	
+
 	tween.tween_property(camera, "zoom", Vector2(2.2, 2.2), 1.2)
 	tween.tween_property(camera, "global_position", target_pos, 1.2)
-	
+
 	anim_player.play("fade_out")
-	
+
 	$StepsSound.play()
 	await $StepsSound.finished
 	$StepsSound.play()
-	
+
 	if anim_player.is_playing():
 		await anim_player.animation_finished
-	
+
 	get_tree().change_scene_to_file(target_scene)
 
 func _on_animals_door_input_event(_v, event, _s):

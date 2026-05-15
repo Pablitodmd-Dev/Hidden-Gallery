@@ -1,5 +1,7 @@
 extends Area2D
 
+signal piece_locked
+
 var target_index = -1
 var is_dragging = false
 var is_locked = false
@@ -27,7 +29,6 @@ func _input_event(_viewport, event, _idx):
 		if event.pressed and not is_locked:
 			if G.is_any_piece_dragging:
 				return
-				
 			is_dragging = true
 			G.is_any_piece_dragging = true
 			z_index = 20
@@ -52,4 +53,5 @@ func check_distance():
 				rotation_degrees = 0
 				is_locked = true
 				z_index = 1
+				emit_signal("piece_locked")
 				break

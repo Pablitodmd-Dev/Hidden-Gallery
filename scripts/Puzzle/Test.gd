@@ -3,12 +3,21 @@ extends Node2D
 @onready var chart = $Chart
 @onready var cell_container = $Cells
 @onready var piece_container = $Pieces
-
 @onready var cell_scene = preload("res://scenes/Puzzle/Cell.tscn")
 @onready var piece_scene = preload("res://scenes/Puzzle/PuzzlePiece.tscn")
 
 var TARGET_W: float = 920.0
 var TARGET_H: float = 546.0
+
+const ROOM_SCENES = {
+	"animal_1": "res://scenes/Rooms/AnimalsRoom.tscn",
+	"animal_2": "res://scenes/Rooms/AnimalsRoom.tscn",
+	"animal_3": "res://scenes/Rooms/AnimalsRoom.tscn",
+	"flower_1": "res://scenes/Rooms/FlowerRoom.tscn",
+	"flower_2": "res://scenes/Rooms/FlowerRoom.tscn",
+	"landscape_1": "res://scenes/Rooms/LandscapeRoom.tscn",
+	"landscape_2": "res://scenes/Rooms/LandscapeRoom.tscn",
+}
 
 func _ready():
 	cell_container.global_position = chart.global_position
@@ -32,8 +41,8 @@ func start_game():
 	var unit_h = TARGET_H / rows
 	var scaled_unit_size = Vector2(unit_w, unit_h)
 	
-	var start_offset = - (Vector2(TARGET_W, TARGET_H) / 2)
-
+	var start_offset = -(Vector2(TARGET_W, TARGET_H) / 2)
+	
 	for y in range(rows):
 		for x in range(cols):
 			var idx = (y * cols) + x
@@ -58,3 +67,19 @@ func start_game():
 			
 			var angles = [0, 90, 180, 270]
 			piece.rotation_degrees = angles.pick_random()
+			
+			piece.piece_locked.connect(_on_piece_locked)
+			G.pieces.append(piece)
+
+func _on_piece_locked():
+	var all_locked = G.pieces.all(func(p): return p.is_locked)
+	if all_locked:
+		_on_puzzle_completed()
+
+func _on_puzzle_completed():
+	GameManager.mark_puzzle_complete(G.current_puzzle_id)
+	
+	await get_tree().create_timer(1.5).timeout
+	
+	var next_scene = ROOM_SCENES.get(G.current_puzzle_id, "res://scenes/Rooms/PrincipalRoom.tscn")
+	get_tree().change_scene_to_file(next_scene)

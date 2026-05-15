@@ -3,18 +3,19 @@
 [ext_resource type="Script" uid="uid://ddis783ymtrav" path="res://scripts/Rooms/principal_room.gd" id="1_su7wi"]
 [ext_resource type="Texture2D" uid="uid://cfdop7sqjdfyi" path="res://assets/Rooms/PrincipalRoom.png" id="1_t70nw"]
 [ext_resource type="AudioStream" uid="uid://b8th7lsb5ktve" path="res://assets/Sounds/sfx/NormalSteps.wav" id="3_4x71x"]
+[ext_resource type="Texture2D" uid="uid://c2ioxxk863n3o" path="res://assets/Rooms/Principalroomfixed.png" id="3_p8vmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t70nw"]
-size = Vector2(66.5, 186)
+size = Vector2(66.5, 193)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_su7wi"]
-size = Vector2(125, 87.5)
+size = Vector2(125, 94.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4x71x"]
-size = Vector2(116, 88)
+size = Vector2(116, 97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8vmh"]
-size = Vector2(109, 88)
+size = Vector2(109, 95)
 
 [sub_resource type="Animation" id="Animation_p8vmh"]
 length = 0.001
@@ -77,6 +78,11 @@ position = Vector2(576, 324)
 scale = Vector2(1.125, 1.476082)
 texture = ExtResource("1_t70nw")
 
+[node name="BackgroundCleaned" type="Sprite2D" parent="." unique_id=1347826470]
+position = Vector2(576.50006, 323.99997)
+scale = Vector2(0.73580086, 0.9642856)
+texture = ExtResource("3_p8vmh")
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=669869330]
 visible = false
 offset_right = 1152.0
@@ -97,7 +103,7 @@ position = Vector2(350, 427)
 [node name="LandScapesDoor" type="Area2D" parent="." unique_id=1041417805]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LandScapesDoor" unique_id=2001435501]
-position = Vector2(577, 461)
+position = Vector2(577, 464.5)
 shape = SubResource("RectangleShape2D_t70nw")
 debug_color = Color(0, 0.6503022, 0.05908925, 0.41960785)
 
@@ -117,20 +123,20 @@ position = Vector2(792, 431)
 [node name="AnimalsChart" type="Area2D" parent="." unique_id=1431126884]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalsChart" unique_id=1586439969]
-position = Vector2(347.5, 301.5)
+position = Vector2(347.5, 304.875)
 shape = SubResource("RectangleShape2D_su7wi")
 debug_color = Color(0.056164287, 0.52550465, 0.99999994, 0.41960785)
 
 [node name="FloraChart" type="Area2D" parent="." unique_id=2046301476]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloraChart" unique_id=1476503209]
-position = Vector2(794, 301)
+position = Vector2(794, 305.5)
 shape = SubResource("RectangleShape2D_4x71x")
 
 [node name="LandScapeChart" type="Area2D" parent="." unique_id=1510022555]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LandScapeChart" unique_id=420588677]
-position = Vector2(576.5, 301)
+position = Vector2(576.5, 304.5)
 shape = SubResource("RectangleShape2D_p8vmh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=796113325]

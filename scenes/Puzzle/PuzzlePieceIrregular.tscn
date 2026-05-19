@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://lbssi8p4406c"]
+
+[ext_resource type="Script" uid="uid://dfaiymgmc56x8" path="res://scripts/Puzzle/PuzzlePieceIrregular.gd" id="1_q7o2p"]
+
+[node name="PuzzlePieceIrregular" type="Area2D" unique_id=1195176585]
+script = ExtResource("1_q7o2p")
+
+[node name="Polygon" type="Polygon2D" parent="." unique_id=1970347925]
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="." unique_id=358660990]

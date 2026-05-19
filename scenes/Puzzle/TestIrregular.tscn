@@ -1,22 +1,22 @@
-[gd_scene format=3 uid="uid://b3jg66me5w56d"]
+[gd_scene format=3 uid="uid://b6rom1007op61"]
 
-[ext_resource type="Script" uid="uid://fuklken1mple" path="res://scripts/Puzzle/Test.gd" id="1_vcuj2"]
-[ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="2_2d42a"]
-[ext_resource type="Texture2D" uid="uid://onq4qnafm1lu" path="res://assets/Rooms/PuzzleBackground.png" id="2_lidqf"]
-[ext_resource type="AudioStream" uid="uid://c10ahuj4lssas" path="res://assets/Sounds/success.wav" id="4_hgdpf"]
+[ext_resource type="Script" uid="uid://cvbf7pd3dgfh" path="res://scripts/Puzzle/TestIrregular.gd" id="1_jbiio"]
+[ext_resource type="Texture2D" uid="uid://onq4qnafm1lu" path="res://assets/Rooms/PuzzleBackground.png" id="2_rrme2"]
+[ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="3_57bgh"]
+[ext_resource type="AudioStream" uid="uid://c10ahuj4lssas" path="res://assets/Sounds/success.wav" id="4_ifjt0"]
 
 [node name="Test" type="Node2D" unique_id=33757627]
-script = ExtResource("1_vcuj2")
+script = ExtResource("1_jbiio")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=119313429]
 position = Vector2(576, 324)
 scale = Vector2(1.0666667, 1.3995681)
-texture = ExtResource("2_lidqf")
+texture = ExtResource("2_rrme2")
 
 [node name="Chart" type="Sprite2D" parent="." unique_id=799586528]
 position = Vector2(573.00006, 328.00003)
 scale = Vector2(0.7984422, 0.80307686)
-texture = ExtResource("2_2d42a")
+texture = ExtResource("3_57bgh")
 
 [node name="Cells" type="Node2D" parent="." unique_id=931514778]
 position = Vector2(581, 324)
@@ -27,5 +27,5 @@ position = Vector2(581, 324)
 scale = Vector2(0.8, 0.8)
 
 [node name="CompleteSound" type="AudioStreamPlayer" parent="." unique_id=860123992]
-stream = ExtResource("4_hgdpf")
+stream = ExtResource("4_ifjt0")
 volume_db = -10.0

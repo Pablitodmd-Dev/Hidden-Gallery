@@ -6,14 +6,20 @@ var target_index = -1
 var is_dragging = false
 var is_locked = false
 
-@onready var polygon = $Polygon
-@onready var collision_polygon = $CollisionPolygon
+var polygon: Polygon2D
+var collision_polygon: CollisionPolygon2D
 
 func setup_piece(p_index, p_texture, p_scale, p_points: PackedVector2Array):
 	target_index = p_index
 	
-	polygon.texture = p_texture
+	polygon = get_node_or_null("Polygon")
+	collision_polygon = get_node_or_null("CollisionPolygon")
 	
+	if polygon == null or collision_polygon == null:
+		push_error("ERROR: Asegúrate de que los hijos sean Polygon2D ('Polygon') y CollisionPolygon2D ('CollisionPolygon')")
+		return
+		
+	polygon.texture = p_texture
 	polygon.uv = p_points
 	
 	var center = Vector2.ZERO
@@ -56,6 +62,7 @@ func check_distance():
 	for cell in G.cells:
 		if global_position.distance_to(cell.global_position) < 60:
 			var current_rot = abs(fmod(rotation_degrees, 360))
+			
 			if cell.index == target_index and (current_rot < 0.1 or current_rot > 359.9):
 				global_position = cell.global_position
 				rotation_degrees = 0

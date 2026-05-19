@@ -11,12 +11,6 @@ extends Node2D
 var TARGET_W: float = 920.0
 var TARGET_H: float = 546.0
 
-const ROOM_SCENES = {
-	"animal_1": "res://scenes/Rooms/AnimalsRoomIrregular.tscn",
-	"animal_2": "res://scenes/Rooms/AnimalsRoomIrregular.tscn",
-	"animal_3": "res://scenes/Rooms/AnimalsRoomIrregular.tscn"
-}
-
 func _ready():
 	cell_container.global_position = chart.global_position
 	piece_container.global_position = chart.global_position
@@ -44,72 +38,48 @@ func start_game():
 	var orig_u_w = texture.get_width() / float(cols)
 	var orig_u_h = texture.get_height() / float(rows)
 	
-	var jitter = 35.0
-	var grid_points = []
-	
-	for y in range(rows + 1):
-		var row_points = []
-		for x in range(cols + 1):
-			var base_point = Vector2(x * orig_u_w, y * orig_u_h)
-			if x > 0 and x < cols and y > 0 and y < rows:
-				base_point.x += randf_range(-jitter, jitter)
-				base_point.y += randf_range(-jitter, jitter)
-			row_points.append(base_point)
-		grid_points.append(row_points)
-
 	for y in range(rows):
 		for x in range(cols):
-			var idx = (y * cols) + x
+			var base_idx = ((y * cols) + x) * 2 
 			
-			var cell = cell_scene.instantiate()
-			cell_container.add_child(cell)
-			cell.position = start_offset + Vector2(x * unit_w, y * unit_h) + (scaled_unit_size / 2)
-			cell.setup_cell(idx, scaled_unit_size)
-			G.cells.append(cell)
+			var tl_local = start_offset + Vector2(x * unit_w, y * unit_h)
+			var tr_local = start_offset + Vector2((x + 1) * unit_w, y * unit_h)
+			var br_local = start_offset + Vector2((x + 1) * unit_w, (y + 1) * unit_h)
+			var bl_local = start_offset + Vector2(x * unit_w, (y + 1) * unit_h)
 			
-			var tl = grid_points[y][x]
-			var tr = grid_points[y][x + 1]
-			var br = grid_points[y + 1][x + 1]
-			var bl = grid_points[y + 1][x]
+			var tl_uv = Vector2(x * orig_u_w, y * orig_u_h)
+			var tr_uv = Vector2((x + 1) * orig_u_w, y * orig_u_h)
+			var br_uv = Vector2((x + 1) * orig_u_w, (y + 1) * orig_u_h)
+			var bl_uv = Vector2(x * orig_u_w, (y + 1) * orig_u_h)
 			
-			var edge_deformation = 45.0 
+			var points_a = PackedVector2Array([tl_uv, tr_uv, bl_uv])
+			var center_a = (tl_local + tr_local + bl_local) / 3.0
+			_create_puzzle_element(base_idx, texture, final_scale_vector, points_a, center_a, scaled_unit_size)
 			
-			var mid_top = (tl + tr) / 2.0
-			if y > 0:
-				mid_top += Vector2(randf_range(-10, 10), randf_range(-edge_deformation, edge_deformation))
-			
-			var mid_right = (tr + br) / 2.0
-			if x < cols - 1:
-				mid_right += Vector2(randf_range(-edge_deformation, edge_deformation), randf_range(-10, 10))
-				
-			var mid_bottom = (br + bl) / 2.0
-			if y < rows - 1:
-				mid_bottom += Vector2(randf_range(-10, 10), randf_range(-edge_deformation, edge_deformation))
-				
-			var mid_left = (bl + tl) / 2.0
-			if x > 0:
-				mid_left += Vector2(randf_range(-edge_deformation, edge_deformation), randf_range(-10, 10))
-			
-			var piece_points = PackedVector2Array([
-				tl, mid_top, 
-				tr, mid_right, 
-				br, mid_bottom, 
-				bl, mid_left
-			])
-			
-			var piece = piece_scene.instantiate()
-			piece_container.add_child(piece)
-			
-			var side = 1 if randf() > 0.5 else -1
-			piece.position = Vector2(side * randf_range(600, 800), randf_range(-300, 300))
-			
-			piece.setup_piece(idx, texture, final_scale_vector, piece_points)
-			
-			var angles = [0, 90, 180, 270]
-			piece.rotation_degrees = angles.pick_random()
-			
-			piece.piece_locked.connect(_on_piece_locked)
-			G.pieces.append(piece)
+			var points_b = PackedVector2Array([tr_uv, br_uv, bl_uv])
+			var center_b = (tr_local + br_local + bl_local) / 3.0
+			_create_puzzle_element(base_idx + 1, texture, final_scale_vector, points_b, center_b, scaled_unit_size)
+
+func _create_puzzle_element(idx: int, texture: Texture2D, scale_vector: Vector2, points: PackedVector2Array, target_center: Vector2, scaled_unit_size: Vector2):
+	var cell = cell_scene.instantiate()
+	cell_container.add_child(cell)
+	cell.position = target_center
+	cell.setup_cell(idx, scaled_unit_size)
+	G.cells.append(cell)
+	
+	var piece = piece_scene.instantiate()
+	piece_container.add_child(piece)
+	
+	var side = 1 if randf() > 0.5 else -1
+	piece.position = Vector2(side * randf_range(600, 800), randf_range(-300, 300))
+	
+	piece.setup_piece(idx, texture, scale_vector, points)
+	
+	var angles = [0, 90, 180, 270]
+	piece.rotation_degrees = angles.pick_random()
+	
+	piece.piece_locked.connect(_on_piece_locked)
+	G.pieces.append(piece)
 
 func _on_piece_locked():
 	var all_locked = G.pieces.all(func(p): return p.is_locked)
@@ -120,9 +90,9 @@ func _on_puzzle_completed():
 	if complete_sound:
 		complete_sound.play()
 		
-	GameManager.mark_puzzle_complete(G.current_puzzle_id)
+	if G.current_puzzle_id != "":
+		GameManager.mark_puzzle_complete(G.current_puzzle_id)
 	
 	await get_tree().create_timer(1.5).timeout
 	
-	var next_scene = ROOM_SCENES.get(G.current_puzzle_id, "res://scenes/Rooms/PrincipalRoom.tscn")
-	get_tree().change_scene_to_file(next_scene)
+	get_tree().change_scene_to_file("res://scenes/Rooms/PrincipalRoom.tscn")

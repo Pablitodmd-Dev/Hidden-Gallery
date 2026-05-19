@@ -18,13 +18,6 @@ position = Vector2(573.00006, 328.00003)
 scale = Vector2(0.7984422, 0.80307686)
 texture = ExtResource("2_2d42a")
 
-[node name="HintImage" type="TextureRect" parent="." unique_id=1482128962]
-modulate = Color(1, 1, 1, 0.59607846)
-offset_left = 209.0
-offset_top = 109.0
-offset_right = 942.0
-offset_bottom = 546.0
-
 [node name="Cells" type="Node2D" parent="." unique_id=931514778]
 position = Vector2(581, 324)
 scale = Vector2(0.8, 0.8)
@@ -35,7 +28,13 @@ scale = Vector2(0.8, 0.8)
 
 [node name="CompleteSound" type="AudioStreamPlayer" parent="." unique_id=860123992]
 stream = ExtResource("4_hgdpf")
-volume_db = -15.0
+volume_db = -10.0
+
+[node name="HintImage" type="TextureRect" parent="." unique_id=1482128962]
+offset_left = 209.0
+offset_top = 109.0
+offset_right = 942.0
+offset_bottom = 546.0
 
 [node name="HintButton" type="Button" parent="." unique_id=341631239]
 offset_left = 1042.0

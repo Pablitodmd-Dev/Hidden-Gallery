@@ -5,9 +5,11 @@ extends Node2D
 @onready var anim_player = $AnimationPlayer
 @onready var color_rect = $ColorRect
 @onready var background_cleaned = $BackgroundCleaned
+@onready var secret_room_door = $SecretRoomDoor
 
 func _ready():
 	background_cleaned.visible = GameManager.all_puzzles_done()
+	secret_room_door.input_pickable = GameManager.all_puzzles_done()
 
 	color_rect.visible = true
 	if anim_player.has_animation("fade_in"):
@@ -38,6 +40,16 @@ func transition_to_room(marker_node: Marker2D, target_scene: String):
 
 	get_tree().change_scene_to_file(target_scene)
 
+# Transición simple solo con fade, sin mover la cámara
+func transition_to_room_fade_only(target_scene: String):
+	set_process_input(false)
+	color_rect.visible = true
+
+	anim_player.play("fade_out_2")
+	await anim_player.animation_finished
+
+	get_tree().change_scene_to_file(target_scene)
+
 func _on_animals_door_input_event(_v, event, _s):
 	if event is InputEventMouseButton and event.pressed:
 		transition_to_room($AnimalsDoor/AnimalCameraPoint, "res://scenes/Rooms/AnimalsRoom.tscn")
@@ -49,6 +61,10 @@ func _on_land_scapes_door_input_event(_v, event, _s):
 func _on_flora_door_input_event(_v, event, _s):
 	if event is InputEventMouseButton and event.pressed:
 		transition_to_room($FloraDoor/FloraCameraPoint, "res://scenes/Rooms/FlowerRoom.tscn")
+
+func _on_secret_room_door_input_event(_v, event, _s):
+	if event is InputEventMouseButton and event.pressed:
+		transition_to_room_fade_only("res://scenes/Rooms/SecretRoom.tscn")
 
 func _on_animals_chart_input_event(_v, event, _s):
 	if event is InputEventMouseButton and event.pressed:

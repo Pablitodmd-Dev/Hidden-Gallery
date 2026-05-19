@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="6_obvqg"]
 [ext_resource type="PackedScene" uid="uid://ujkikwuluwfr" path="res://scenes/RoomsCompleteCharts/Flora1ChartComplete.tscn" id="7_l0ldu"]
 [ext_resource type="PackedScene" uid="uid://bfkh4clvmccls" path="res://scenes/RoomsCompleteCharts/Flora2ChartComplete.tscn" id="8_3loty"]
+[ext_resource type="AudioStream" uid="uid://lrfuqkulrwqv" path="res://assets/Sounds/sfx/PuzzleFound.wav" id="11_am4ia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0ldu"]
 size = Vector2(274, 351)
@@ -39,6 +40,46 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PuzzleFind:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_eip2f"]
+resource_name = "entering_puzzle"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PuzzleFind:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_y6m8h"]
@@ -84,9 +125,10 @@ tracks/1/keys = {
 "values": [true, true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_obvqg"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gcan"]
 _data = {
 &"RESET": SubResource("Animation_hgwkw"),
+&"entering_puzzle": SubResource("Animation_eip2f"),
 &"entering_scene": SubResource("Animation_y6m8h"),
 &"leaving_scene": SubResource("Animation_57udg")
 }
@@ -166,15 +208,19 @@ debug_color = Color(0.3107405, 0.601835, 0.5065978, 0.41960785)
 visible = false
 position = Vector2(928, 446)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1700323716]
-libraries/ = SubResource("AnimationLibrary_obvqg")
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1941295161]
 visible = false
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1799533266]
+libraries/ = SubResource("AnimationLibrary_4gcan")
+
+[node name="PuzzleFind" type="AudioStreamPlayer2D" parent="." unique_id=870905513]
+stream = ExtResource("11_am4ia")
+volume_db = -15.0
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="input_event" from="FloralChart1" to="." method="_on_floral_chart_1_input_event"]

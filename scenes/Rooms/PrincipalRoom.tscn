@@ -3,10 +3,15 @@
 [ext_resource type="Script" uid="uid://ddis783ymtrav" path="res://scripts/Rooms/principal_room.gd" id="1_su7wi"]
 [ext_resource type="Texture2D" uid="uid://cfdop7sqjdfyi" path="res://assets/Rooms/PrincipalRoom.png" id="1_t70nw"]
 [ext_resource type="AudioStream" uid="uid://b8th7lsb5ktve" path="res://assets/Sounds/sfx/NormalSteps.wav" id="3_4x71x"]
-[ext_resource type="Texture2D" uid="uid://c2ioxxk863n3o" path="res://assets/Rooms/Principalroomfixed.png" id="3_p8vmh"]
+[ext_resource type="Texture2D" uid="uid://d3duivjx87rfm" path="res://assets/Rooms/PrincipalRoomFixed.png" id="3_p8vmh"]
+[ext_resource type="AudioStream" uid="uid://2cvsbwjojn0w" path="res://assets/Sounds/sfx/CaveSteps.wav" id="5_1emw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t70nw"]
-size = Vector2(66.5, 193)
+size = Vector2(66.5, 189)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8vmh"]
+radius = 33.0
+height = 143.99994
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_su7wi"]
 size = Vector2(125, 94.25)
@@ -30,6 +35,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepsSecretSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_4x71x"]
@@ -57,17 +74,58 @@ tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.41, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("StepsSecretSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_q1cru"]
+resource_name = "fade_out_2"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepsSecretSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dxclr"]
 _data = {
 &"RESET": SubResource("Animation_p8vmh"),
 &"fade_in": SubResource("Animation_4x71x"),
-&"fade_out": SubResource("Animation_1emw6")
+&"fade_out": SubResource("Animation_1emw6"),
+&"fade_out_2": SubResource("Animation_q1cru")
 }
 
 [node name="PrincipalRoom" type="Node2D" unique_id=1433225470]
@@ -75,7 +133,7 @@ script = ExtResource("1_su7wi")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1108100961]
 position = Vector2(576, 324)
-scale = Vector2(1.125, 1.476082)
+scale = Vector2(0.73516273, 0.96428573)
 texture = ExtResource("1_t70nw")
 
 [node name="BackgroundCleaned" type="Sprite2D" parent="." unique_id=1347826470]
@@ -93,7 +151,7 @@ color = Color(0, 0, 0, 1)
 [node name="AnimalsDoor" type="Area2D" parent="." unique_id=788791663]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimalsDoor" unique_id=1500574883]
-position = Vector2(349.75, 461)
+position = Vector2(349.75, 458)
 shape = SubResource("RectangleShape2D_t70nw")
 debug_color = Color(0.76150274, 0.45183545, 1.92523e-07, 0.41960785)
 
@@ -103,7 +161,7 @@ position = Vector2(350, 427)
 [node name="LandScapesDoor" type="Area2D" parent="." unique_id=1041417805]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LandScapesDoor" unique_id=2001435501]
-position = Vector2(577, 464.5)
+position = Vector2(577, 459.5)
 shape = SubResource("RectangleShape2D_t70nw")
 debug_color = Color(0, 0.6503022, 0.05908925, 0.41960785)
 
@@ -113,12 +171,23 @@ position = Vector2(577, 429)
 [node name="FloraDoor" type="Area2D" parent="." unique_id=1227526146]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloraDoor" unique_id=1014498779]
-position = Vector2(792, 461)
+position = Vector2(792, 458)
 shape = SubResource("RectangleShape2D_t70nw")
 debug_color = Color(0.9229097, 5.1692426e-05, 0.68636936, 0.41960785)
 
 [node name="FloraCameraPoint" type="Marker2D" parent="FloraDoor" unique_id=924518362]
 position = Vector2(792, 431)
+
+[node name="SecretRoomDoor" type="Area2D" parent="." unique_id=2044621716]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretRoomDoor" unique_id=1089173884]
+position = Vector2(576, 598)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_p8vmh")
+debug_color = Color(0.5535839, 0.52631825, 0.5433634, 0.41960785)
+
+[node name="SecretCameraPoint" type="Marker2D" parent="SecretRoomDoor" unique_id=971035065]
+position = Vector2(576, 598)
 
 [node name="AnimalsChart" type="Area2D" parent="." unique_id=1431126884]
 
@@ -148,12 +217,17 @@ libraries/ = SubResource("AnimationLibrary_dxclr")
 stream = ExtResource("3_4x71x")
 volume_db = -10.0
 
+[node name="StepsSecretSound" type="AudioStreamPlayer2D" parent="." unique_id=2079830740]
+stream = ExtResource("5_1emw6")
+volume_db = -10.0
+
 [node name="PrincipalZoom" type="Camera2D" parent="." unique_id=139775021]
 position = Vector2(576, 324)
 
 [connection signal="input_event" from="AnimalsDoor" to="." method="_on_animals_door_input_event"]
 [connection signal="input_event" from="LandScapesDoor" to="." method="_on_land_scapes_door_input_event"]
 [connection signal="input_event" from="FloraDoor" to="." method="_on_flora_door_input_event"]
+[connection signal="input_event" from="SecretRoomDoor" to="." method="_on_secret_room_door_input_event"]
 [connection signal="input_event" from="AnimalsChart" to="." method="_on_animals_chart_input_event"]
 [connection signal="input_event" from="FloraChart" to="." method="_on_flora_chart_input_event"]
 [connection signal="input_event" from="LandScapeChart" to="." method="_on_land_scape_chart_input_event"]

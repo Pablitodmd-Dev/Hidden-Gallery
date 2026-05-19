@@ -24,14 +24,13 @@ func _ready() -> void:
 	animal1_complete.visible = GameManager.Animal_puzzle_1
 	animal2_complete.visible = GameManager.Animal_puzzle_2
 	animal3_complete.visible = GameManager.Animal_puzzle_3
-	
+
 	animal1_chart.input_pickable = not GameManager.Animal_puzzle_1
 	animal2_chart.input_pickable = not GameManager.Animal_puzzle_2
 	animal3_chart.input_pickable = not GameManager.Animal_puzzle_3
-	
-	# Mostrar imagen limpia solo si los 3 puzzles están completados
+
 	cleared_image.visible = GameManager.all_animal_puzzles_done()
-	
+
 	color_rect.visible = true
 	if anim_player.has_animation("entering_scene"):
 		anim_player.play("entering_scene")
@@ -42,12 +41,12 @@ func _start_puzzle_transition(tex: Texture2D, puzzle_id: String) -> void:
 	if tex == null:
 		return
 	G.set_next_puzzle(tex, 4, 2, puzzle_id)
-	
+
 	color_rect.visible = true
-	if anim_player.has_animation("leaving_scene"):
-		anim_player.play("leaving_scene")
+	if anim_player.has_animation("entering_puzzle"):
+		anim_player.play("entering_puzzle")
 		await anim_player.animation_finished
-	
+
 	get_tree().change_scene_to_file("res://scenes/Puzzle/Test.tscn")
 
 func _on_animal_chart_1_input_event(_viewport, event, _shape_idx):

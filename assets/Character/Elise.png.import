@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3duivjx87rfm"
-path="res://.godot/imported/Principalroomfixed.png-32eb1796f1899a5e099dafdd9a97f210.ctex"
+uid="uid://c1nqq8k18i0yt"
+path="res://.godot/imported/Elise.png-3d2251ef412e4f2ed4180a67e4339300.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Rooms/Principalroomfixed.png"
-dest_files=["res://.godot/imported/Principalroomfixed.png-32eb1796f1899a5e099dafdd9a97f210.ctex"]
+source_file="res://assets/Character/Elise.png"
+dest_files=["res://.godot/imported/Elise.png-3d2251ef412e4f2ed4180a67e4339300.ctex"]
 
 [params]
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dm16cssf5kvxk"]
 
 [ext_resource type="Script" uid="uid://dhj2fq6kbo7x6" path="res://scripts/Ui/intro.gd" id="1_i8df0"]
+[ext_resource type="Texture2D" uid="uid://c1nqq8k18i0yt" path="res://assets/Character/Elise.png" id="2_i2slu"]
 
 [node name="Control" type="Control" unique_id=2100277249]
 layout_mode = 3
@@ -19,3 +20,15 @@ offset_bottom = 608.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2132582527]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_right = 1225.0
+offset_bottom = 728.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i2slu")

@@ -7,39 +7,57 @@ DrEliseMoreau: Well… I was afraid no one would accept this mission.
 [voice path="res://assets/Sounds/voices/voice3.mp3" volume="-10.0"]
 DrEliseMoreau: My name is Elise Moreau, I am a curator at the European Institute for Cultural Conservation.
 
+[voice path="res://assets/Sounds/voices/voice4.mp3" volume="-10.0"]
 DrEliseMoreau: Decades ago, a gallery was closed following an incident that was never fully explained.
 
+[voice path="res://assets/Sounds/voices/voice5.mp3" volume="-10.0"]
 DrEliseMoreau: They called it The Hidden Gallery.
 
+[voice path="res://assets/Sounds/voices/voice6.mp3" volume="-10.0"]
 DrEliseMoreau: Inside lay hundreds of forgotten works… paintings, sketches and portraits that now belong to the public domain.
 
+[voice path="res://assets/Sounds/voices/voice7.mp3" volume="-10.0"]
 DrEliseMoreau: Works that were once admired by the whole world.
 
+[voice path="res://assets/Sounds/voices/voice8.mp3" volume="-10.0"]
 DrEliseMoreau: But something happened…
 
+[voice path="res://assets/Sounds/voices/voice9.mp3" volume="-10.0"]
 DrEliseMoreau: Over time, the gallery began to fall into disrepair, the rooms stood empty, the lights went out. And the paintings… began to fade.
 
+[voice path="res://assets/Sounds/voices/voice10.mp3" volume="-10.0"]
 DrEliseMoreau: Not physically.
 
+[voice path="res://assets/Sounds/voices/voice11.mp3" volume="-10.0"]
 DrEliseMoreau: Their memory. Each painting lost its identity, as if the art had been torn from them.
 
+[voice path="res://assets/Sounds/voices/voice12.mp3" volume="-10.0"]
 DrEliseMoreau: We have tried to restore it several times.
 
+[voice path="res://assets/Sounds/voices/voice13.mp3" volume="-10.0"]
 DrEliseMoreau: No one managed to see it through to the end.
 
+[voice path="res://assets/Sounds/voices/voice14.mp3" volume="-10.0"]
 DrEliseMoreau: But we believe you can.
 
+[voice path="res://assets/Sounds/voices/voice15.mp3" volume="-10.0"]
 DrEliseMoreau: The gallery responds to those who observe it.
 
+[voice path="res://assets/Sounds/voices/voice16.mp3" volume="-10.0"]
 DrEliseMoreau: Each work is a puzzle.
 
+[voice path="res://assets/Sounds/voices/voice17.mp3" volume="-10.0"]
 DrEliseMoreau: Solving them will bring the rooms back to life.
 
+[voice path="res://assets/Sounds/voices/voice18.mp3" volume="-10.0"]
 DrEliseMoreau: And perhaps… reveal what really happened there.
 
+[voice path="res://assets/Sounds/voices/voice19.mp3" volume="-10.0"]
 DrEliseMoreau: When you enter, do not ignore the incomplete paintings.
 
+[voice path="res://assets/Sounds/voices/voice20.mp3" volume="-10.0"]
 DrEliseMoreau: The gallery remembers more than it lets on.
 
+[voice path="res://assets/Sounds/voices/voice21.mp3" volume="-10.0"]
 DrEliseMoreau: Good luck.
 [signal arg="intro_finished"]

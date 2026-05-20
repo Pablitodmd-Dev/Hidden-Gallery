@@ -2,7 +2,6 @@ extends Control
 
 func _ready():
 	MusicPlayer.stop()
-	BgMusic.stop()
 	Dialogic.start("intro")
 	
 	Dialogic.signal_event.connect(_on_dialogic_signal)

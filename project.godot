@@ -19,9 +19,8 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://b5hf5i4of27bv"
 G="*uid://dhxqxdh5susou"
-BgMusic="*uid://ciokghl3hfrqc"
-MusicPlayer="*uid://ciokghl3hfrqc"
 Dialogic="*uid://ds2q0uclmolvu"
+MusicPlayer="*uid://dspb0nkeww442"
 
 [dialogic]
 

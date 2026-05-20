@@ -5,7 +5,7 @@ extends Node2D
 @onready var piece_container = $Pieces
 @onready var complete_sound = $CompleteSound
 
-@onready var cell_scene = preload("res://scenes/Puzzle/Cell.tscn")
+@onready var cell_scene = preload("res://scenes/Puzzle/CellIrregular.tscn")
 @onready var piece_scene = preload("res://scenes/Puzzle/PuzzlePieceIrregular.tscn")
 
 var TARGET_W: float = 920.0
@@ -31,7 +31,6 @@ func start_game():
 	
 	var unit_w = TARGET_W / cols
 	var unit_h = TARGET_H / rows
-	var scaled_unit_size = Vector2(unit_w, unit_h)
 	
 	var start_offset = -(Vector2(TARGET_W, TARGET_H) / 2)
 	
@@ -54,17 +53,26 @@ func start_game():
 			
 			var points_a = PackedVector2Array([tl_uv, tr_uv, bl_uv])
 			var center_a = (tl_local + tr_local + bl_local) / 3.0
-			_create_puzzle_element(base_idx, texture, final_scale_vector, points_a, center_a, scaled_unit_size)
+			_create_puzzle_element(base_idx, texture, final_scale_vector, points_a, center_a)
 			
 			var points_b = PackedVector2Array([tr_uv, br_uv, bl_uv])
 			var center_b = (tr_local + br_local + bl_local) / 3.0
-			_create_puzzle_element(base_idx + 1, texture, final_scale_vector, points_b, center_b, scaled_unit_size)
+			_create_puzzle_element(base_idx + 1, texture, final_scale_vector, points_b, center_b)
 
-func _create_puzzle_element(idx: int, texture: Texture2D, scale_vector: Vector2, points: PackedVector2Array, target_center: Vector2, scaled_unit_size: Vector2):
+func _create_puzzle_element(idx: int, texture: Texture2D, scale_vector: Vector2, points: PackedVector2Array, target_center: Vector2):
+	var center = Vector2.ZERO
+	for pt in points:
+		center += pt
+	center /= points.size()
+	
+	var centered_points = PackedVector2Array()
+	for pt in points:
+		centered_points.append((pt - center) * scale_vector)
+
 	var cell = cell_scene.instantiate()
 	cell_container.add_child(cell)
 	cell.position = target_center
-	cell.setup_cell(idx, scaled_unit_size)
+	cell.setup_cell(idx, centered_points)
 	G.cells.append(cell)
 	
 	var piece = piece_scene.instantiate()
@@ -94,5 +102,4 @@ func _on_puzzle_completed():
 		GameManager.mark_puzzle_complete(G.current_puzzle_id)
 	
 	await get_tree().create_timer(1.5).timeout
-	
 	get_tree().change_scene_to_file("res://scenes/Rooms/PrincipalRoom.tscn")

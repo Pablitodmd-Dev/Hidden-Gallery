@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://btlqdehm8af8v"]
+
+[ext_resource type="Script" uid="uid://dxj0xp3hwqf0e" path="res://scripts/Puzzle/CellIrregular.gd" id="1_gfyhp"]
+
+[node name="CellIrregular" type="Area2D" unique_id=1328470422]
+script = ExtResource("1_gfyhp")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=745943933]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=751986755]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -16,7 +16,6 @@ func setup_piece(p_index, p_texture, p_scale, p_points: PackedVector2Array):
 	collision_polygon = get_node_or_null("CollisionPolygon")
 	
 	if polygon == null or collision_polygon == null:
-		push_error("ERROR: Asegúrate de que los hijos sean Polygon2D ('Polygon') y CollisionPolygon2D ('CollisionPolygon')")
 		return
 		
 	polygon.texture = p_texture

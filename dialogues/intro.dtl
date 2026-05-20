@@ -1,0 +1,45 @@
+[voice path="res://assets/Sounds/voices/voice1.mp3" volume="-10.0"]
+DrEliseMoreau: Hello, can you hear me?
+
+[voice path="res://assets/Sounds/voices/voice2.mp3" volume="-10.0"]
+DrEliseMoreau: Well… I was afraid no one would accept this mission.
+
+[voice path="res://assets/Sounds/voices/voice3.mp3" volume="-10.0"]
+DrEliseMoreau: My name is Elise Moreau, I am a curator at the European Institute for Cultural Conservation.
+
+DrEliseMoreau: Decades ago, a gallery was closed following an incident that was never fully explained.
+
+DrEliseMoreau: They called it The Hidden Gallery.
+
+DrEliseMoreau: Inside lay hundreds of forgotten works… paintings, sketches and portraits that now belong to the public domain.
+
+DrEliseMoreau: Works that were once admired by the whole world.
+
+DrEliseMoreau: But something happened…
+
+DrEliseMoreau: Over time, the gallery began to fall into disrepair, the rooms stood empty, the lights went out. And the paintings… began to fade.
+
+DrEliseMoreau: Not physically.
+
+DrEliseMoreau: Their memory. Each painting lost its identity, as if the art had been torn from them.
+
+DrEliseMoreau: We have tried to restore it several times.
+
+DrEliseMoreau: No one managed to see it through to the end.
+
+DrEliseMoreau: But we believe you can.
+
+DrEliseMoreau: The gallery responds to those who observe it.
+
+DrEliseMoreau: Each work is a puzzle.
+
+DrEliseMoreau: Solving them will bring the rooms back to life.
+
+DrEliseMoreau: And perhaps… reveal what really happened there.
+
+DrEliseMoreau: When you enter, do not ignore the incomplete paintings.
+
+DrEliseMoreau: The gallery remembers more than it lets on.
+
+DrEliseMoreau: Good luck.
+[signal arg="intro_finished"]

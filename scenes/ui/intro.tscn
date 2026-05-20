@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dm16cssf5kvxk"]
+
+[ext_resource type="Script" uid="uid://dhj2fq6kbo7x6" path="res://scripts/Ui/intro.gd" id="1_i8df0"]
+
+[node name="Control" type="Control" unique_id=2100277249]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_i8df0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=313150734]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

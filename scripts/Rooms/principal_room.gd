@@ -40,7 +40,6 @@ func transition_to_room(marker_node: Marker2D, target_scene: String):
 
 	get_tree().change_scene_to_file(target_scene)
 
-# Transición simple solo con fade, sin mover la cámara
 func transition_to_room_fade_only(target_scene: String):
 	set_process_input(false)
 	color_rect.visible = true

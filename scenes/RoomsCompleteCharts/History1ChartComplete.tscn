@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bxs87aq1trdgi"]
+
+[ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="1_cdsew"]
+[ext_resource type="Texture2D" uid="uid://8dpq4xlva5nx" path="res://assets/Paintings/WorldMap.jpeg" id="2_cdsew"]
+
+[node name="HistoryChart1Complete" type="Node2D" unique_id=511959938]
+
+[node name="Chart" type="Sprite2D" parent="." unique_id=240546063]
+scale = Vector2(0.35783836, 0.34923077)
+texture = ExtResource("1_cdsew")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=101577879]
+position = Vector2(1.9999943, -0.9999993)
+scale = Vector2(0.2733333, 0.2722063)
+texture = ExtResource("2_cdsew")

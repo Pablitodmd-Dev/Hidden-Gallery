@@ -3,17 +3,14 @@ extends Control
 @onready var anim_player = $AnimationPlayer
 @onready var color_rect = $ColorRect
 
-# Nodos de puzzles completados
 @onready var animal1_complete = $Animal1ChartComplete
 @onready var animal2_complete = $Animal2ChartComplete
 @onready var animal3_complete = $Animal3ChartComplete
 
-# Nodos de puzzles (para deshabilitar click si ya completados)
 @onready var animal1_chart = $AnimalChart1
 @onready var animal2_chart = $AnimalChart2
 @onready var animal3_chart = $AnimalChart3
 
-# Nodo recompensa al completar los 3 puzzles
 @onready var cleared_image = $CleanedImage
 
 @export var texture_animal_1: Texture2D

@@ -13,7 +13,7 @@ config_version=5
 config/name="Hidden-Gallery"
 run/main_scene="uid://d0urna8s3kgxf"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dn41i52jcsv2w"
 
 [autoload]
 

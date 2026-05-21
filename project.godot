@@ -29,6 +29,7 @@ directories/dch_directory={
 "DrEliseMoreau": "res://dialogues/character/DrEliseMoreau.dch"
 }
 directories/dtl_directory={
+"certificate": "res://dialogues/certificate.dtl",
 "intro": "res://dialogues/intro.dtl"
 }
 layout/style_directory={}

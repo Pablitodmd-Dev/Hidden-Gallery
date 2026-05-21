@@ -9,3 +9,4 @@ func _ready() -> void:
 		anim_player.play("fade_in")
 		await anim_player.animation_finished
 	color_rect.visible = false
+	Dialogic.start("certificate")

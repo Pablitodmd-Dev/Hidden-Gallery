@@ -27,3 +27,4 @@ DrEliseMoreau: Please accept this certificate as recognition of your achievement
 
 [voice path="res://assets/Sounds/voices/voice31.mp3" volume="-10.0"]
 DrEliseMoreau: The doors of The Hidden Gallery will remain open… because of you.
+[signal arg="certificate_finished"]

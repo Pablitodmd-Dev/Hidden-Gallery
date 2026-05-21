@@ -20,8 +20,8 @@ config/icon="uid://dn41i52jcsv2w"
 GameManager="*uid://b5hf5i4of27bv"
 G="*uid://dhxqxdh5susou"
 Dialogic="*uid://ds2q0uclmolvu"
-MusicPlayer="*uid://dspb0nkeww442"
 BgMusic="*uid://ciokghl3hfrqc"
+MusicPlayer="*uid://ciokghl3hfrqc"
 
 [dialogic]
 

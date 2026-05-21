@@ -8,6 +8,9 @@ extends Node2D
 @onready var cell_scene = preload("res://scenes/Puzzle/CellIrregular.tscn")
 @onready var piece_scene = preload("res://scenes/Puzzle/PuzzlePieceIrregular.tscn")
 
+@onready var hint_image = $HintImage
+@onready var hint_button = $HintButton
+
 var TARGET_W: float = 920.0
 var TARGET_H: float = 546.0
 
@@ -15,8 +18,20 @@ func _ready():
 	cell_container.global_position = chart.global_position
 	piece_container.global_position = chart.global_position
 	
+	hint_image.texture = G.next_texture
+	hint_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	hint_image.stretch_mode = TextureRect.STRETCH_SCALE
+	hint_image.visible = false
+
+	hint_button.pressed.connect(_on_hint_button_pressed)
+	hint_button.text = "View Hint"
+	
 	if G.next_texture:
 		start_game()
+
+func _on_hint_button_pressed():
+	hint_image.visible = not hint_image.visible
+	hint_button.text = "Hide Hint" if hint_image.visible else "View Hint"
 
 func start_game():
 	G.reset_puzzle_data()
@@ -98,6 +113,9 @@ func _on_puzzle_completed():
 	if complete_sound:
 		complete_sound.play()
 		
+	hint_button.visible = false
+	hint_image.visible = false
+	
 	if G.current_puzzle_id != "":
 		GameManager.mark_puzzle_complete(G.current_puzzle_id)
 	

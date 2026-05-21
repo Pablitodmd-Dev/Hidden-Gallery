@@ -42,3 +42,5 @@ offset_left = 1042.0
 offset_top = 34.0
 offset_right = 1050.0
 offset_bottom = 42.0
+
+[connection signal="pressed" from="HintButton" to="." method="_on_hint_button_pressed"]

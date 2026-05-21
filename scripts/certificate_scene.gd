@@ -14,4 +14,9 @@ func _ready() -> void:
 
 func _on_dialogic_signal(argument):
 	if argument == "certificate_finished":
+		await get_tree().create_timer(2.0).timeout
+		color_rect.visible = true
+		if anim_player.has_animation("fade_out"):
+			anim_player.play("fade_out")
+			await anim_player.animation_finished
 		get_tree().change_scene_to_file("res://scenes/ui/MainMenu.tscn")

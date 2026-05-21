@@ -34,10 +34,27 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_duplb"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_duplb"]
 _data = {
 &"RESET": SubResource("Animation_ntofu"),
-&"fade_in": SubResource("Animation_k1h5e")
+&"fade_in": SubResource("Animation_k1h5e"),
+&"fade_out": SubResource("Animation_duplb")
 }
 
 [node name="Control" type="Control" unique_id=1041063260]

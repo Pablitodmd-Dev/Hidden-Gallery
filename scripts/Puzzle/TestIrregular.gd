@@ -120,4 +120,4 @@ func _on_puzzle_completed():
 		GameManager.mark_puzzle_complete(G.current_puzzle_id)
 	
 	await get_tree().create_timer(1.5).timeout
-	get_tree().change_scene_to_file("res://scenes/Rooms/PrincipalRoom.tscn")
+	get_tree().change_scene_to_file("res://scenes/Rooms/SecretRoom.tscn")

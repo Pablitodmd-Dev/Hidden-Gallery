@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://b6rom1007op61"]
+[gd_scene format=3 uid="uid://byjnytsuxouvv"]
 
-[ext_resource type="Script" uid="uid://cvbf7pd3dgfh" path="res://scripts/Puzzle/TestIrregular.gd" id="1_jbiio"]
+[ext_resource type="Script" path="res://scripts/Puzzle/TestIrregular.gd" id="1_jbiio"]
 [ext_resource type="Texture2D" uid="uid://onq4qnafm1lu" path="res://assets/Rooms/PuzzleBackground.png" id="2_rrme2"]
 [ext_resource type="Texture2D" uid="uid://cbe5pkfai7hhc" path="res://assets/PaintingChart/PaintingChart.png" id="3_57bgh"]
 [ext_resource type="AudioStream" uid="uid://c10ahuj4lssas" path="res://assets/Sounds/success.wav" id="4_ifjt0"]

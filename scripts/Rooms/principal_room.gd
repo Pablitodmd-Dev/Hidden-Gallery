@@ -8,8 +8,8 @@ extends Node2D
 @onready var secret_room_door = $SecretRoomDoor
 
 func _ready():
-	background_cleaned.visible = GameManager.all_puzzles_done()
-	secret_room_door.input_pickable = GameManager.all_puzzles_done()
+	background_cleaned.visible = GameManager.all_main_puzzles_done()
+	secret_room_door.input_pickable = GameManager.all_main_puzzles_done()
 
 	color_rect.visible = true
 	if anim_player.has_animation("fade_in"):

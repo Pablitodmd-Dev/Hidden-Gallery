@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5eiwkw1u3ojc"
-path="res://.godot/imported/landscape1_fila-1-columna-1.png-49c33e9e12f379acea566707e597e202.ctex"
+uid="uid://d0qis1qddgw73"
+path="res://.godot/imported/Certificate.png-917163f2a60f240338700b0c30741ae6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/BrokenPaintings/Landscape1/landscape1_fila-1-columna-1.png"
-dest_files=["res://.godot/imported/landscape1_fila-1-columna-1.png-49c33e9e12f379acea566707e597e202.ctex"]
+source_file="res://assets/Certificate.png"
+dest_files=["res://.godot/imported/Certificate.png-917163f2a60f240338700b0c30741ae6.ctex"]
 
 [params]
 

@@ -34,5 +34,8 @@ func all_landscape_puzzles_done() -> bool:
 func all_history_puzzles_done() -> bool:
 	return History_puzzle_1 and History_puzzle_2
 
-func all_puzzles_done() -> bool:
+func all_main_puzzles_done() -> bool:
 	return all_animal_puzzles_done() and all_flower_puzzles_done() and all_landscape_puzzles_done()
+
+func all_puzzles_done() -> bool:
+	return all_main_puzzles_done() and all_history_puzzles_done()

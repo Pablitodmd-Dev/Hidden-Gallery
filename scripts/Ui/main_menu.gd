@@ -6,11 +6,11 @@ extends Control
 func _ready() -> void:
 	var backgroundMusic = load("res://assets/Sounds/bgMusic/RelaxingPiano.mp3")
 	
-	if MusicPlayer != null:
-		if MusicPlayer.stream != backgroundMusic:
-			MusicPlayer.stream = backgroundMusic
-			MusicPlayer.volume_db = -25.0
-			MusicPlayer.play()
+	if BgMusic != null:
+		if BgMusic.stream != backgroundMusic:
+			BgMusic.stream = backgroundMusic
+			BgMusic.volume_db = -25.0
+			BgMusic.play()
 
 	color_rect.visible = true
 	if anim_player.has_animation("fade_in"):

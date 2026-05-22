@@ -3,7 +3,7 @@ extends Control
 @onready var rain = $Rain
 
 func _ready():
-	MusicPlayer.stop()
+	BgMusic.stop()
 	
 	rain.play()
 	
@@ -14,4 +14,4 @@ func _on_dialogic_signal(argument):
 	if argument == "intro_finished":
 		get_tree().change_scene_to_file("res://scenes/ui/MainMenu.tscn")
 		rain.stop()
-		MusicPlayer.play()
+		BgMusic.play()

@@ -69,6 +69,12 @@ variables={}
 text/input_action="dialogic_default_action"
 text/autocolor_names=false
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
